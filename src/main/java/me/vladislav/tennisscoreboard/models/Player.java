@@ -11,7 +11,7 @@ import lombok.*;
 @EqualsAndHashCode
 
 @Entity
-@Table(name = "players")
+@Table(name = "players", indexes = {@Index(columnList = "name")})
 public class Player {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
