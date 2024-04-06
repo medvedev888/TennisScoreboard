@@ -11,7 +11,7 @@ import lombok.*;
 @EqualsAndHashCode
 
 @Entity
-@Table(name = "MATCHES", schema = "PUBLIC")
+@Table(name = "MATCHES")
 public class Match {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
