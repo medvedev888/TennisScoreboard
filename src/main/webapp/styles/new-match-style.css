@@ -14,7 +14,18 @@ body {
     font-size: 20px;
     font-optical-sizing: auto;
     font-style: normal;
-    color: floralwhite;
+    color: #fad1bf;
+}
+
+/* Change Autocomplete styles in Chrome*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active  {
+    -webkit-text-fill-color: #fad1bf;
+    box-shadow: 0 0 0 30px rgb(17, 0, 0) inset;
 }
 
 input[type="text"] {
@@ -22,7 +33,7 @@ input[type="text"] {
     color: #fad1bf;
     background-color: rgb(17, 0, 0);
     padding-left: 20px;
-    border: 1px solid floralwhite;
+    border: 1px solid #fad1bf;
     border-radius: 30px;
     width: 400px;
     height: 60px;
@@ -54,28 +65,28 @@ input[type="text"]::placeholder {
     font-family: "Reddit Mono", monospace;
     font-size: 30px;
     display: inline;
-    background-color: floralwhite;
+    background-color: #fad1bf;
     padding: 3px;
-    border: 1px solid floralwhite;
+    border: 1px solid #fad1bf;
     border-radius: 30px;
     width: 400px;
     height: 60px;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 10px rgba(250, 209, 191, 0.8);
     margin-top: 20px;
     margin-bottom: 20px;
 }
 
 .submit-button:hover {
-    background-color: #fad1bf;
-    border-color: #fad1bf;
+    background-color: #ffe8e0;
+    border-color: #ffe8e0;
     transition: all 0.3s ease;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 10px rgba(250, 209, 191, 0.8);
     cursor: pointer;
 }
 
 .player {
     border-radius: 30px;
-    border: 1px solid floralwhite;
+    border: 1px solid #fad1bf;
 }
 
 .player,

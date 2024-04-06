@@ -14,7 +14,7 @@ body {
     font-size: 20px;
     font-optical-sizing: auto;
     font-style: normal;
-    color: floralwhite;
+    color: #fad1bf;
 }
 
 .heading {
@@ -48,14 +48,14 @@ body {
     margin-left: 30px;
     color: rgb(17, 0, 0);
     border-radius: 30px;
-    background-color: floralwhite;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    background-color: #fad1bf;
+    box-shadow: 0 0 10px rgba(250, 209, 191, 0.8);
 }
 
 .link-container:hover {
-    background-color: #fad1bf;
-    border-color: #fad1bf;
+    background-color: #ffe8e0;
+    border-color: #ffe8e0;
     transition: all 0.3s ease;
     cursor: pointer;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 10px rgba(250, 209, 191, 0.8);
 }
