@@ -42,5 +42,16 @@ body {
     text-decoration-line: none;
     padding: 10px 20px;
     margin: 0 10px;
-    color: floralwhite;
+    color: rgb(17, 0, 0);
+    border-radius: 40px;
+    background-color: floralwhite;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+.link:hover {
+    background-color: #fad1bf;
+    border-color: #fad1bf;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
 }
