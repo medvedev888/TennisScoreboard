@@ -22,6 +22,8 @@ public class NewMatchServlet extends HttpServlet {
         String player1 = request.getParameter("player-1");
         String player2 = request.getParameter("player-2");
 
+
+
         if(ValidationUtils.validateName(player1) && ValidationUtils.validateName(player2)){
             response.setStatus(HttpServletResponse.SC_OK);
             response.sendRedirect("match-score");
