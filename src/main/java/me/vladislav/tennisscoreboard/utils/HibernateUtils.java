@@ -7,10 +7,9 @@ import org.hibernate.cfg.Configuration;
 public class HibernateUtils {
 
     public static Session getSession(){
-        try (SessionFactory sessionFactory = getSessionFactory();
-             Session session = sessionFactory.openSession()){
-            return session;
-        }
+        SessionFactory sessionFactory = getSessionFactory();
+        Session session = sessionFactory.openSession();
+        return session;
     }
 
     public static SessionFactory getSessionFactory(){
