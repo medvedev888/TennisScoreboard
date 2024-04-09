@@ -34,8 +34,22 @@ public class PlayerDataAccessObject implements DataAccessObject<Player> {
         return List.of();
     }
 
+
+    //переделать более красивее и правильней
     @Override
     public void add(Player player) {
-
+        Session session = HibernateUtils.getSession();
+        try {
+            session.beginTransaction();
+            session.save(player);
+            session.getTransaction().commit();
+        } catch (RuntimeException e) {
+            if (session.getTransaction() != null && session.getTransaction().isActive()) {
+                session.getTransaction().rollback();
+            }
+            throw e;
+        } finally {
+            session.close();
+        }
     }
 }

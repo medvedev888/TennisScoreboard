@@ -47,17 +47,21 @@ public class NewMatchServlet extends HttpServlet {
                 player1 = playerDataAccessObject.getByName(player1Name).get();
             } else {
                 player1 = new Player(player1Name);
+                playerDataAccessObject.add(player1);
             }
 
             if(playerDataAccessObject.getByName(player2Name).isPresent()){
                 player2 = playerDataAccessObject.getByName(player2Name).get();
             } else {
                 player2 = new Player(player2Name);
+                playerDataAccessObject.add(player2);
             }
 
-            getInstance().addCurrentMatch(new CurrentMatch(UUID.randomUUID(), player1, player2));
 
-            response.sendRedirect("match-score");
+            UUID uuid = UUID.randomUUID();
+            getInstance().addCurrentMatch(new CurrentMatch(uuid, player1, player2));
+
+            response.sendRedirect("match-score.jsp?uuid=" + uuid);
         } else {
             response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Incorrect input parameters");
         }
