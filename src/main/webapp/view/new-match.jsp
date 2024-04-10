@@ -9,7 +9,7 @@
     <body>
         <h1 class="heading">Tennis scoreboard</h1>
         <div class="container">
-            <form action="new-match" method="post">
+            <form action="${pageContext.request.contextPath}/new-match" method="post">
                 <label for="player-1" id="label-1">Player 1:</label>
                 <input type="text" class="player" id="player-1" name="player-1" placeholder="Enter the name of player 1">
                 <br/>

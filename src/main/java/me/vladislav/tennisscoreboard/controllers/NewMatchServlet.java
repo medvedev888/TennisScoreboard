@@ -29,7 +29,7 @@ public class NewMatchServlet extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("new-match.jsp").forward(request, response);
+        request.getRequestDispatcher("view/new-match.jsp").forward(request, response);
     }
 
     @Override
@@ -57,11 +57,10 @@ public class NewMatchServlet extends HttpServlet {
                 playerDataAccessObject.add(player2);
             }
 
-
             UUID uuid = UUID.randomUUID();
             getInstance().addCurrentMatch(new CurrentMatch(uuid, player1, player2));
 
-            response.sendRedirect("match-score.jsp?uuid=" + uuid);
+            response.sendRedirect("view/match-score.jsp?uuid=" + uuid);
         } else {
             response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Incorrect input parameters");
         }
