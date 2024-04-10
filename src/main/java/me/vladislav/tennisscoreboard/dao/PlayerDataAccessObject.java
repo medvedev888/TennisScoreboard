@@ -11,45 +11,56 @@ import java.util.Optional;
 public class PlayerDataAccessObject implements DataAccessObject<Player> {
 
     public Optional<Player> getByName(String name) {
-        Player player;
         try (Session session = HibernateUtils.getSession()) {
             session.beginTransaction();
             Query<Player> query = session.createQuery("SELECT p FROM Player p WHERE p.name = :name", Player.class);
             query.setParameter("name", name);
-            player = query.uniqueResult();
+            Player player = query.uniqueResult();
             session.getTransaction().commit();
             return Optional.ofNullable(player);
-        } catch (Exception e){
+        } catch (Exception e) {
+            e.printStackTrace();
             return Optional.empty();
         }
     }
 
     @Override
-    public Player getById(int id) {
-        return null;
+    public Optional<Player> getById(int id) {
+        try (Session session = HibernateUtils.getSession()) {
+            session.beginTransaction();
+            Query<Player> query = session.createQuery("SELECT p FROM Player p WHERE p.id = :id", Player.class);
+            query.setParameter("id", id);
+            Player player = query.uniqueResult();
+            session.getTransaction().commit();
+            return Optional.ofNullable(player);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Optional.empty();
+        }
     }
 
     @Override
-    public List<Player> getList() {
-        return List.of();
+    public Optional<List<Player>> getList() {
+        try (Session session = HibernateUtils.getSession()) {
+            session.beginTransaction();
+            List<Player> listOfPlayers = session.createQuery("FROM Player", Player.class).getResultList();
+            session.getTransaction().commit();
+            return Optional.ofNullable(listOfPlayers);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Optional.empty();
+        }
     }
 
 
-    //переделать более красивее и правильней
     @Override
     public void add(Player player) {
-        Session session = HibernateUtils.getSession();
-        try {
+        try (Session session = HibernateUtils.getSession()) {
             session.beginTransaction();
             session.save(player);
             session.getTransaction().commit();
-        } catch (RuntimeException e) {
-            if (session.getTransaction() != null && session.getTransaction().isActive()) {
-                session.getTransaction().rollback();
-            }
-            throw e;
-        } finally {
-            session.close();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

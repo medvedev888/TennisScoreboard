@@ -2,9 +2,10 @@ package me.vladislav.tennisscoreboard.dao;
 
 
 import java.util.List;
+import java.util.Optional;
 
 public interface DataAccessObject<T> {
-    public T getById(int id);
-    public List<T> getList();
+    public Optional<T> getById(int id);
+    public Optional<List<T>> getList();
     public void add(T t);
 }
