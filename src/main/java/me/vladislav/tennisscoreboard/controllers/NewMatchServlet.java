@@ -57,10 +57,13 @@ public class NewMatchServlet extends HttpServlet {
                 playerDataAccessObject.add(player2);
             }
 
-            UUID uuid = UUID.randomUUID();
-            getInstance().addCurrentMatch(new CurrentMatch(uuid, player1, player2));
-
-            response.sendRedirect("view/match-score.jsp?uuid=" + uuid);
+            if(!player1.equals(player2)){
+                UUID uuid = UUID.randomUUID();
+                getInstance().addCurrentMatch(new CurrentMatch(uuid, player1, player2));
+                response.sendRedirect("view/match-score.jsp?uuid=" + uuid);
+            } else {
+                response.setStatus(HttpServletResponse.SC_CONFLICT);
+            }
         } else {
             response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Incorrect input parameters");
         }
