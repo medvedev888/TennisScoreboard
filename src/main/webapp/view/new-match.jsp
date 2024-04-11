@@ -7,7 +7,7 @@
 
 </head>
     <body>
-        <h1 class="heading">Tennis scoreboard</h1>
+        <h1 class="heading">New Tennis<br>Match</h1>
         <div class="container">
             <form action="${pageContext.request.contextPath}/new-match" method="post">
                 <label for="player-1" id="label-1">Player 1:</label>
