@@ -10,26 +10,64 @@
     <body>
         <h1 class="heading">Match Score</h1>
         <div class="scoreboard-container">
+            <div class="buttons-container" id="container-1">
+                <form action="" method="post">
+                    <button class="button" name="button-player-1-win-a-point" value="player-1-win">Player 1<br>wins<br>a point</button>
+                </form>
+                <form action="" method="post">
+                    <button class="button" name="button-player-2-win-a-point" value="player-2-win">Player 2<br>wins<br>a point</button>
+                </form>
+            </div>
             <div class="points-container">
-                <h2>Points</h2>
+                <p>Points</p>
+                <div class="subelement">
+                    <p>3</p>
+                </div>
+                <div class="subelement">
+                    <p>4</p>
+                </div>
             </div>
             <div class="games-container">
-                <h2>Games</h2>
+                <p>Games</p>
+                <div class="subelement">
+                    <p>3</p>
+                </div>
+                <div class="subelement">
+                    <p>4</p>
+                </div>
             </div>
             <div class="sets-container">
-                <h2>Sets</h2>
+                <p>Sets</p>
+                <div class="subelement">
+                    <p>3</p>
+                </div>
+                <div class="subelement">
+                    <p>4</p>
+                </div>
             </div>
             <div class="players-container">
-                <h2>Player</h2>
+                <p>Player</p>
+                <div class="subelement">
+                    <p>3</p>
+                </div>
+                <div class="subelement">
+                    <p>4</p>
+                </div>
             </div>
             <div class="previous-sets-container">
-                <h2>Previous Sets</h2>
+                <p>Previous Sets</p>
                 <div class="previous-set-container">
                     <div class="previous-set-subcontainer" id="previous-set-subcontainer-1">
                         <p>11</p>
                     </div>
                     <div class="previous-set-subcontainer" id="previous-set-subcontainer-2">
                         <p>22</p>
+                    </div>
+                    <div class="previous-set-subcontainer" id="previous-set-subcontainer-3">
+                        <p>33</p>
+                    </div>
+                    <div class="previous-set-subcontainer" id="previous-set-subcontainer-4">
+                        <p>44</p>
                     </div>
                 </div>
             </div>
