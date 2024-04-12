@@ -1,4 +1,4 @@
-package me.vladislav.tennisscoreboard.Exception;
+package me.vladislav.tennisscoreboard.exception;
 
 public class DataAccessException extends Exception {
     public DataAccessException(String message) {

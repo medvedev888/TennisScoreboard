@@ -34,8 +34,8 @@ public class NewMatchServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String player1Name = request.getParameter("player-1");
-        String player2Name = request.getParameter("player-2");
+        String player1Name = request.getParameter("player-1").strip();
+        String player2Name = request.getParameter("player-2").strip();
         Player player1;
         Player player2;
 

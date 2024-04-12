@@ -1,4 +1,4 @@
-package me.vladislav.tennisscoreboard.Exception;
+package me.vladislav.tennisscoreboard.exception;
 
 public class IncorrectInputException extends Exception {
     public IncorrectInputException(String message) {
