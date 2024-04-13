@@ -4,7 +4,7 @@ import lombok.Getter;
 
 public enum GameScore {
     START_POINT("0"),
-    POINT("15"),
+    FIRST_POINT("15"),
     SECOND_POINT("30"),
     THIRD_POINT("40");
 

@@ -16,15 +16,15 @@ public class OngoingMatchesService {
         return OngoingMatchesServiceHolder.INSTANCE;
     }
 
-    public void addCurrentMatch(CurrentMatch currentMatch) {
+    public synchronized void addCurrentMatch(CurrentMatch currentMatch) {
         currentMatches.put(currentMatch.getId(), currentMatch);
     }
 
-    public void removeCurrentMatch(UUID id) {
+    public synchronized void removeCurrentMatch(UUID id) {
         currentMatches.remove(id);
     }
 
-    public CurrentMatch getCurrentMatch(UUID id) {
+    public synchronized CurrentMatch getCurrentMatch(UUID id) {
         return currentMatches.get(id);
     }
 

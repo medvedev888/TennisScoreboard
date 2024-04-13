@@ -9,6 +9,7 @@ import jakarta.servlet.annotation.WebServlet;
 import me.vladislav.tennisscoreboard.dao.PlayerDataAccessObject;
 import me.vladislav.tennisscoreboard.dto.CurrentMatch;
 import me.vladislav.tennisscoreboard.models.Player;
+import me.vladislav.tennisscoreboard.services.business_logic.State;
 import me.vladislav.tennisscoreboard.utils.ValidationUtils;
 
 import java.io.IOException;
@@ -59,7 +60,7 @@ public class NewMatchServlet extends HttpServlet {
 
             if(!player1.equals(player2)){
                 UUID uuid = UUID.randomUUID();
-                getInstance().addCurrentMatch(new CurrentMatch(uuid, player1, player2));
+                getInstance().addCurrentMatch(new CurrentMatch(uuid, player1, player2, State.IN_PROCESS));
                 response.sendRedirect("view/match-score.jsp?uuid=" + uuid);
             } else {
                 response.setStatus(HttpServletResponse.SC_CONFLICT);
