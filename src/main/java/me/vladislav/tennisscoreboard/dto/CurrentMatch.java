@@ -2,8 +2,8 @@ package me.vladislav.tennisscoreboard.dto;
 
 import lombok.*;
 import me.vladislav.tennisscoreboard.models.Player;
-import me.vladislav.tennisscoreboard.services.business_logic.GameScore;
-import me.vladislav.tennisscoreboard.services.business_logic.State;
+import me.vladislav.tennisscoreboard.services.business_logic.GameCalculation.GameScore;
+import me.vladislav.tennisscoreboard.services.business_logic.MatchCalculation.MatchState;
 
 import java.util.UUID;
 
@@ -20,12 +20,12 @@ public class CurrentMatch {
     private GameScore gameScoreOfPlayer2;
     private int setScoreOfPlayer1 = 0;
     private int setScoreOfPlayer2 = 0;
-    private State state;
+    private MatchState matchState;
 
-    public CurrentMatch(UUID id, Player player1, Player player2, State state) {
+    public CurrentMatch(UUID id, Player player1, Player player2, MatchState matchState) {
         this.id = id;
         this.player1 = player1;
         this.player2 = player2;
-        this.state = state;
+        this.matchState = matchState;
     }
 }

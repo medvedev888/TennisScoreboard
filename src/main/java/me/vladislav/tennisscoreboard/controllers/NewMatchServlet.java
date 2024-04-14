@@ -9,7 +9,7 @@ import jakarta.servlet.annotation.WebServlet;
 import me.vladislav.tennisscoreboard.dao.PlayerDataAccessObject;
 import me.vladislav.tennisscoreboard.dto.CurrentMatch;
 import me.vladislav.tennisscoreboard.models.Player;
-import me.vladislav.tennisscoreboard.services.business_logic.State;
+import me.vladislav.tennisscoreboard.services.business_logic.results.State;
 import me.vladislav.tennisscoreboard.utils.ValidationUtils;
 
 import java.io.IOException;
