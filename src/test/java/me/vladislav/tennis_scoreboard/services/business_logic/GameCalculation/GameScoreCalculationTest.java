@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class GameScoreCalculationTest {
 
-    //started score is 0 : 0
+    // started score is 0 : 0
     // first player is win point
     @Test
     void testGameScoreCalculation0To0(){
@@ -36,7 +36,7 @@ public class GameScoreCalculationTest {
         assertEquals(expected, actual, "Matches should be equal");
     }
 
-    //started score is 0 : 40
+    // started score is 0 : 40
     // second player is win point
     @Test
     void testGameScoreCalculation0To40(){

@@ -13,6 +13,7 @@ public class GameScoreCalculation implements Calculation<GameResult> {
         Player currentPointWinner = currentMatch.getCurrentPointWinner();
 
         if(currentMatch.getMatchState() == MatchState.IN_PROCESS){
+
             // Deuce (40 : 40)
             if(currentMatch.getGameScoreOfPlayer1() == currentMatch.getGameScoreOfPlayer2() &&
                     currentMatch.getGameScoreOfPlayer1() == GameScore.THIRD_POINT){
@@ -30,45 +31,50 @@ public class GameScoreCalculation implements Calculation<GameResult> {
                 return GameResult.IN_PROCESS;
                 // Advantage (AD : AD)
             } else if(currentMatch.getGameScoreOfPlayer1() == currentMatch.getGameScoreOfPlayer2() &&
-                    currentMatch.getGameScoreOfPlayer1() == GameScore.ADVANTAGE){
+                    currentMatch.getGameScoreOfPlayer1() == GameScore.ADVANTAGE) {
 
                 currentMatch.setGameScoreOfPlayer1(GameScore.THIRD_POINT);
                 currentMatch.setGameScoreOfPlayer2(GameScore.THIRD_POINT);
 
                 // Player 1 won the point
-                if(currentPointWinner.equals(currentMatch.getPlayer1())){
+                if (currentPointWinner.equals(currentMatch.getPlayer1())) {
                     currentMatch.setGameScoreOfPlayer1(currentMatch.getGameScoreOfPlayer1().nextInDeuceStage());
                     // Player 2 won the point
-                } else if(currentPointWinner.equals(currentMatch.getPlayer2())){
+                } else if (currentPointWinner.equals(currentMatch.getPlayer2())) {
                     currentMatch.setGameScoreOfPlayer2(currentMatch.getGameScoreOfPlayer2().nextInDeuceStage());
                 } else {
                     throw new RuntimeException("Game score calculation failed" + currentPointWinner + " is null;");
                 }
                 return GameResult.IN_PROCESS;
 
+                // check is deuce phase
+            } else if (currentMatch.getGameScoreOfPlayer1() == GameScore.ADVANTAGE || currentMatch.getGameScoreOfPlayer2() == GameScore.ADVANTAGE) {
                 // Player 1 won the point
-            } else if(currentPointWinner.equals(currentMatch.getPlayer1())){
-                // AD + 1 : 40
-                if(currentMatch.getGameScoreOfPlayer1() == GameScore.ADVANTAGE && currentMatch.getGameScoreOfPlayer2() == GameScore.THIRD_POINT){
-                    currentMatch.setGameScoreOfPlayer1(GameScore.START_POINT);
-                    currentMatch.setGameScoreOfPlayer2(GameScore.START_POINT);
-                    return GameResult.PLAYER_1_WIN;
-                    // 40 + 1: AD
+                if (currentPointWinner.equals(currentMatch.getPlayer1())) {
+                    // AD + 1 : 40
+                    if (currentMatch.getGameScoreOfPlayer1() == GameScore.ADVANTAGE && currentMatch.getGameScoreOfPlayer2() == GameScore.THIRD_POINT) {
+                        currentMatch.setGameScoreOfPlayer1(GameScore.START_POINT);
+                        currentMatch.setGameScoreOfPlayer2(GameScore.START_POINT);
+                        return GameResult.PLAYER_1_WIN;
+                        // 40 + 1: AD
+                    } else {
+                        currentMatch.setGameScoreOfPlayer1(currentMatch.getGameScoreOfPlayer1().nextInDeuceStage());
+                        return GameResult.IN_PROCESS;
+                    }
+                    // Player 2 won the point
+                } else if (currentPointWinner.equals(currentMatch.getPlayer2())) {
+                    // AD : 40 + 1
+                    if (currentMatch.getGameScoreOfPlayer2() == GameScore.ADVANTAGE && currentMatch.getGameScoreOfPlayer1() == GameScore.THIRD_POINT) {
+                        currentMatch.setGameScoreOfPlayer1(GameScore.START_POINT);
+                        currentMatch.setGameScoreOfPlayer2(GameScore.START_POINT);
+                        return GameResult.PLAYER_2_WIN;
+                        // 40 : AD + 1
+                    } else {
+                        currentMatch.setGameScoreOfPlayer2(currentMatch.getGameScoreOfPlayer2().nextInDeuceStage());
+                        return GameResult.IN_PROCESS;
+                    }
                 } else {
-                    currentMatch.setGameScoreOfPlayer1(currentMatch.getGameScoreOfPlayer1().nextInDeuceStage());
-                    return GameResult.IN_PROCESS;
-                }
-                // Player 2 won the point
-            } else if(currentPointWinner.equals(currentMatch.getPlayer2())){
-                // AD : 40 + 1
-                if(currentMatch.getGameScoreOfPlayer2() == GameScore.ADVANTAGE && currentMatch.getGameScoreOfPlayer1() == GameScore.THIRD_POINT){
-                    currentMatch.setGameScoreOfPlayer1(GameScore.START_POINT);
-                    currentMatch.setGameScoreOfPlayer2(GameScore.START_POINT);
-                    return GameResult.PLAYER_2_WIN;
-                    // 40 : AD + 1
-                } else {
-                    currentMatch.setGameScoreOfPlayer2(currentMatch.getGameScoreOfPlayer2().nextInDeuceStage());
-                    return GameResult.IN_PROCESS;
+                    throw new RuntimeException("Game score calculation failed" + currentPointWinner + " is null;");
                 }
             } else {
                 // Player 1 won the point
