@@ -198,7 +198,4 @@ public class GameScoreCalculationTest {
                 "Either player 1 or player 2 should win the game");
     }
 
-
-
-
 }
