@@ -16,6 +16,7 @@ public class CurrentMatch {
     private Player player1;
     private Player player2;
     private Player currentPointWinner = null;
+    private Player currentGameWinner = null;
     private GameScore gameScoreOfPlayer1 = GameScore.START_POINT;
     private GameScore gameScoreOfPlayer2 = GameScore.START_POINT;
     private int setScoreOfPlayer1 = 0;
