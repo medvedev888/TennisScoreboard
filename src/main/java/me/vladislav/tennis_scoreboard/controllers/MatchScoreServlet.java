@@ -1,4 +1,4 @@
-package me.vladislav.tennisscoreboard.controllers;
+package me.vladislav.tennis_scoreboard.controllers;
 
 
 import jakarta.servlet.ServletContext;
@@ -7,7 +7,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import me.vladislav.tennisscoreboard.services.MatchScoreCalculationService;
+import me.vladislav.tennis_scoreboard.services.MatchScoreCalculationService;
 
 import java.io.IOException;
 

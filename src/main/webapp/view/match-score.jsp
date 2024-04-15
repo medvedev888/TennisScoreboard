@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%--<%@ page import="me.vladislav.tennisscoreboard.services.OngoingMatchesService" %>--%>
-<%--<%@ page import="me.vladislav.tennisscoreboard.dto.CurrentMatch" %>--%>
+<%--<%@ page import="me.vladislav.tennis_scoreboard.services.OngoingMatchesService" %>--%>
+<%--<%@ page import="me.vladislav.tennis_scoreboard.dto.CurrentMatch" %>--%>
 <%@ page import="java.util.UUID" %>
 <html>
     <head>

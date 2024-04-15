@@ -1,4 +1,4 @@
-package me.vladislav.tennisscoreboard.dao;
+package me.vladislav.tennis_scoreboard.dao;
 
 
 import java.util.List;

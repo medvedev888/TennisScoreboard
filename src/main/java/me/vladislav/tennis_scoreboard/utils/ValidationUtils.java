@@ -1,4 +1,4 @@
-package me.vladislav.tennisscoreboard.utils;
+package me.vladislav.tennis_scoreboard.utils;
 
 public class ValidationUtils {
 

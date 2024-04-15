@@ -1,12 +1,12 @@
-package me.vladislav.tennisscoreboard.services;
+package me.vladislav.tennis_scoreboard.services;
 
-import me.vladislav.tennisscoreboard.dto.CurrentMatch;
-import me.vladislav.tennisscoreboard.services.business_logic.GameCalculation.GameScoreCalculation;
-import me.vladislav.tennisscoreboard.services.business_logic.SetCalculation.SetScoreCalculation;
+import me.vladislav.tennis_scoreboard.dto.CurrentMatch;
+import me.vladislav.tennis_scoreboard.services.business_logic.GameCalculation.GameScoreCalculation;
+//import me.vladislav.tennis_scoreboard.services.business_logic.SetCalculation.SetScoreCalculation;
 
 public class MatchScoreCalculationService {
     private final GameScoreCalculation gameScoreCalculation = new GameScoreCalculation();
-    private final SetScoreCalculation setScoreCalculation = new SetScoreCalculation();
+//    private final SetScoreCalculation setScoreCalculation = new SetScoreCalculation();
 
     public void calculationNewScoreForPlayer1(CurrentMatch currentMatch){
         gameScoreCalculation.calculate(currentMatch);

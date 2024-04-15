@@ -1,4 +1,4 @@
-package me.vladislav.tennisscoreboard.services.business_logic.GameCalculation;
+package me.vladislav.tennis_scoreboard.services.business_logic.GameCalculation;
 
 import lombok.Getter;
 

@@ -1,6 +1,6 @@
-package me.vladislav.tennisscoreboard.services;
+package me.vladislav.tennis_scoreboard.services;
 
-import me.vladislav.tennisscoreboard.dto.CurrentMatch;
+import me.vladislav.tennis_scoreboard.dto.CurrentMatch;
 
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;

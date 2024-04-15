@@ -1,4 +1,4 @@
-package me.vladislav.tennisscoreboard.models;
+package me.vladislav.tennis_scoreboard.models;
 
 import jakarta.persistence.*;
 import lombok.*;

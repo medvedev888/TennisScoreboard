@@ -1,7 +1,7 @@
-package me.vladislav.tennisscoreboard.dao;
+package me.vladislav.tennis_scoreboard.dao;
 
-import me.vladislav.tennisscoreboard.models.Player;
-import me.vladislav.tennisscoreboard.utils.HibernateUtils;
+import me.vladislav.tennis_scoreboard.models.Player;
+import me.vladislav.tennis_scoreboard.utils.HibernateUtils;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 

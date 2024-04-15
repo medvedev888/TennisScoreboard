@@ -1,4 +1,4 @@
-package me.vladislav.tennisscoreboard.controllers;
+package me.vladislav.tennis_scoreboard.controllers;
 
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
@@ -6,16 +6,16 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.annotation.WebServlet;
-import me.vladislav.tennisscoreboard.dao.PlayerDataAccessObject;
-import me.vladislav.tennisscoreboard.dto.CurrentMatch;
-import me.vladislav.tennisscoreboard.models.Player;
-import me.vladislav.tennisscoreboard.services.business_logic.results.State;
-import me.vladislav.tennisscoreboard.utils.ValidationUtils;
+import me.vladislav.tennis_scoreboard.dao.PlayerDataAccessObject;
+import me.vladislav.tennis_scoreboard.dto.CurrentMatch;
+import me.vladislav.tennis_scoreboard.models.Player;
+import me.vladislav.tennis_scoreboard.services.business_logic.MatchCalculation.MatchState;
+import me.vladislav.tennis_scoreboard.utils.ValidationUtils;
 
 import java.io.IOException;
 import java.util.UUID;
 
-import static me.vladislav.tennisscoreboard.services.OngoingMatchesService.getInstance;
+import static me.vladislav.tennis_scoreboard.services.OngoingMatchesService.getInstance;
 
 @WebServlet(name = "newMatch", value = "/new-match")
 public class NewMatchServlet extends HttpServlet {
@@ -60,7 +60,7 @@ public class NewMatchServlet extends HttpServlet {
 
             if(!player1.equals(player2)){
                 UUID uuid = UUID.randomUUID();
-                getInstance().addCurrentMatch(new CurrentMatch(uuid, player1, player2, State.IN_PROCESS));
+                getInstance().addCurrentMatch(new CurrentMatch(uuid, player1, player2, MatchState.IN_PROCESS));
                 response.sendRedirect("view/match-score.jsp?uuid=" + uuid);
             } else {
                 response.setStatus(HttpServletResponse.SC_CONFLICT);
