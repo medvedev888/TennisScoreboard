@@ -53,6 +53,10 @@ body {
     margin-top: 20px;
 }
 
+.players-container {
+    height: 319px;
+}
+
 .previous-sets-container > div {
     display: grid;
     grid-template-columns: auto auto;
@@ -96,10 +100,15 @@ body {
 }
 
 #container-1 {
-    top: 21px;
+    top: 17px;
 }
 
 #subelement_player_1,
 #subelement_player_2 {
-    font-size: 2rem;
+    font-size: 35px;
+}
+
+#subelement_player_1 > p{
+    margin-top: 50px;
+    margin-bottom: 80px;
 }

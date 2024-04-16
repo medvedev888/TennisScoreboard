@@ -29,10 +29,10 @@
             <div class="points-container">
                 <p>Points</p>
                 <div class="subelement">
-                    <p>1</p>
+                    <p>11</p>
                 </div>
                 <div class="subelement">
-                    <p>4</p>
+                    <p>42</p>
                 </div>
             </div>
             <div class="games-container">
