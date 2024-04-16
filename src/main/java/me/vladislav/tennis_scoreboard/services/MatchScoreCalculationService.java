@@ -12,7 +12,7 @@ public class MatchScoreCalculationService {
     private GameResult gameResult = GameResult.IN_PROCESS;
     private SetResult setResult = SetResult.IN_PROCESS;
 
-    public void calculationNewScoreForPlayer1(CurrentMatch currentMatch){
+    public void calculation(CurrentMatch currentMatch){
 
         if(gameResult == GameResult.IN_PROCESS) {
              gameResult = gameScoreCalculation.calculate(currentMatch);
@@ -24,6 +24,6 @@ public class MatchScoreCalculationService {
             currentMatch.setCurrentGameWinner(currentMatch.getPlayer2());
             setResult = setScoreCalculation.calculate(currentMatch);
         }
-
+        OngoingMatchesService.getInstance().update(currentMatch.getId(), currentMatch);
     }
 }

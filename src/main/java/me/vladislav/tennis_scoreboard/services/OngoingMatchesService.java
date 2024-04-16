@@ -28,4 +28,9 @@ public class OngoingMatchesService {
         return currentMatches.get(id);
     }
 
+    public synchronized void update(UUID id, CurrentMatch currentMatch) {
+        removeCurrentMatch(id);
+        addCurrentMatch(currentMatch);
+    }
+
 }

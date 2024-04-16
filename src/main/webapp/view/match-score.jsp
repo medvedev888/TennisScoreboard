@@ -1,7 +1,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%--<%@ page import="me.vladislav.tennis_scoreboard.services.OngoingMatchesService" %>--%>
-<%--<%@ page import="me.vladislav.tennis_scoreboard.dto.CurrentMatch" %>--%>
 <%@ page import="java.util.UUID" %>
+<%@ page import="java.util.Currency" %>
+<%@ page import="me.vladislav.tennis_scoreboard.dto.CurrentMatch" %>
+<%@ page import="me.vladislav.tennis_scoreboard.services.OngoingMatchesService" %>
+
+<%
+    String uuidString = request.getParameter("uuid");
+    UUID uuid = UUID.fromString(uuidString);
+    CurrentMatch currentMatch = OngoingMatchesService.getInstance().getCurrentMatch(uuid);
+%>
+
+<!DOCTYPE html>
 <html>
     <head>
         <title>Match Score</title>
@@ -11,17 +20,17 @@
         <h1 class="heading">Match Score</h1>
         <div class="scoreboard-container">
             <div class="buttons-container" id="container-1">
-                <form action="" method="post">
+                <form action="${pageContext.request.contextPath}/match-score?uuid=<%= uuid.toString() %>&number_of_winner_point=1" method="post">
                     <button class="button" name="button-player-1-win-a-point" value="player-1-win">Player 1<br>wins<br>a point</button>
                 </form>
-                <form action="" method="post">
+                <form action="${pageContext.request.contextPath}/match-score?uuid=<%= uuid.toString()%>&number_of_winner_point=2" method="post">
                     <button class="button" name="button-player-2-win-a-point" value="player-2-win">Player 2<br>wins<br>a point</button>
                 </form>
             </div>
             <div class="points-container">
                 <p>Points</p>
                 <div class="subelement">
-                    <p>3</p>
+                    <p>1</p>
                 </div>
                 <div class="subelement">
                     <p>4</p>
@@ -72,18 +81,5 @@
                 </div>
             </div>
         </div>
-
-
-
-
-
-<%--    <%--%>
-<%--        String uuidStr = request.getParameter("uuid");--%>
-<%--        UUID uuid = UUID.fromString(uuidStr);--%>
-<%--        CurrentMatch currentMatch = OngoingMatchesService.getInstance().getCurrentMatch(uuid);--%>
-<%--    %>--%>
-<%--        <p><%= uuid %></p>--%>
-<%--        <p>Player 1: <%= currentMatch.getPlayer1().getName() %> <%= currentMatch.getPlayer1().getId() %> </p>--%>
-<%--        <p>Player 2: <%= currentMatch.getPlayer2().getName() %> <%= currentMatch.getPlayer2().getId() %></p>--%>
     </body>
 </html>
