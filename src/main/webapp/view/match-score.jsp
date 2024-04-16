@@ -30,10 +30,10 @@
             <div class="points-container">
                 <p>Points</p>
                 <div class="subelement">
-                    <p>11</p>
+                    <p><%= currentMatch.getGameScoreOfPlayer1().getPointValue() %></p>
                 </div>
                 <div class="subelement">
-                    <p>42</p>
+                    <p><%= currentMatch.getGameScoreOfPlayer2().getPointValue() %></p>
                 </div>
             </div>
             <div class="games-container">
