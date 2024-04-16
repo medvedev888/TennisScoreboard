@@ -10,10 +10,11 @@
     CurrentMatch currentMatch = OngoingMatchesService.getInstance().getCurrentMatch(uuid);
 %>
 
+<!DOCTYPE html>
 <html>
     <head>
         <title>Match Score</title>
-        <link rel="stylesheet" href="../styles/match-score-style.css" />
+        <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/match-score-style.css" />
     </head>
     <body>
         <h1 class="heading">Match Score</h1>

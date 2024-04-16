@@ -1,9 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
 <html>
 <head>
     <title>New match</title>
-    <link rel="stylesheet" href="styles/new-match-style.css" />
-    <script src="scripts/placeholderHandler.js" defer></script>
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/new-match-style.css" />
+    <script src="<%=request.getContextPath()%>/scripts/placeholderHandler.js" defer></script>
 
 </head>
     <body>

@@ -4,8 +4,8 @@
 <html lang="en">
     <head>
         <title>Tennis scoreboard</title>
-        <link rel="stylesheet" href="../styles/index-style.css" />
-        <script src="../scripts/linkContainerClickHandler.js" defer></script>
+        <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/index-style.css" />
+        <script src="<%=request.getContextPath()%>/scripts/linkContainerClickHandler.js" defer></script>
     </head>
     <body>
         <h1 class="heading">Tennis scoreboard</h1>
