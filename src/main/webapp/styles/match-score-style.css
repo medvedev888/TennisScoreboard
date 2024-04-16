@@ -42,8 +42,9 @@ body {
     border-radius: 30px;
     padding: 5px 30px 5px 30px;
     text-align: center;
-    font-size: 35px;
+    font-size: 30px;
     height: auto;
+    width: auto;
 }
 
 .subelement,
@@ -96,4 +97,9 @@ body {
 
 #container-1 {
     top: 21px;
+}
+
+#subelement_player_1,
+#subelement_player_2 {
+    font-size: 2rem;
 }

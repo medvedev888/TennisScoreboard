@@ -11,10 +11,10 @@
         <div class="container">
             <form action="${pageContext.request.contextPath}/new-match" method="post">
                 <label for="player-1" id="label-1">Player 1:</label>
-                <input type="text" class="player" id="player-1" name="player-1" placeholder="Enter the name of player 1">
+                <input type="text" maxlength="20" class="player" id="player-1" name="player-1" placeholder="Enter the name of player 1">
                 <br/>
                 <label for="player-2" id="label-2">Player 2:</label>
-                <input type="text" class="player" id="player-2" name="player-2" placeholder="Enter the name of player 2">
+                <input type="text" maxlength="20" class="player" id="player-2" name="player-2" placeholder="Enter the name of player 2">
                 <br/>
                 <input type="submit" value="Submit" class="submit-button">
             </form>

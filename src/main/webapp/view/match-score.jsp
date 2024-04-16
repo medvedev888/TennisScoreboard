@@ -10,7 +10,6 @@
     CurrentMatch currentMatch = OngoingMatchesService.getInstance().getCurrentMatch(uuid);
 %>
 
-<!DOCTYPE html>
 <html>
     <head>
         <title>Match Score</title>
@@ -56,11 +55,11 @@
             </div>
             <div class="players-container">
                 <p>Player</p>
-                <div class="subelement">
-                    <p>3</p>
+                <div class="subelement" id="subelement_player_1">
+                    <p><%= currentMatch.getPlayer1().getName()%></p>
                 </div>
-                <div class="subelement">
-                    <p>4</p>
+                <div class="subelement" id="subelement_player_2">
+                    <p><%= currentMatch.getPlayer2().getName()%></p>
                 </div>
             </div>
             <div class="previous-sets-container">
