@@ -17,10 +17,17 @@ public class CurrentMatch {
     private Player player2;
     private Player currentPointWinner = null;
     private Player currentGameWinner = null;
+    private Player currentSetWinner = null;
     private GameScore gameScoreOfPlayer1 = GameScore.START_POINT;
     private GameScore gameScoreOfPlayer2 = GameScore.START_POINT;
     private int setScoreOfPlayer1 = 0;
     private int setScoreOfPlayer2 = 0;
+    private int matchScoreOfPlayer1 = 0;
+    private int matchScoreOfPlayer2 = 0;
+    private int previousSet1ScoreOfPlayer1 = 0;
+    private int previousSet1ScoreOfPlayer2 = 0;
+    private int previousSet2ScoreOfPlayer1 = 0;
+    private int previousSet2ScoreOfPlayer2 = 0;
     private MatchState matchState = MatchState.IN_PROCESS;
 
     public CurrentMatch(UUID id, Player player1, Player player2, MatchState matchState) {

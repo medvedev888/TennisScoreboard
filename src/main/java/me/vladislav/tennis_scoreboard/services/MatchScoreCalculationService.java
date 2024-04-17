@@ -17,13 +17,16 @@ public class MatchScoreCalculationService {
         if(gameResult == GameResult.IN_PROCESS) {
              gameResult = gameScoreCalculation.calculate(currentMatch);
         }
-        if(gameResult == GameResult.PLAYER_1_WIN){
+        else if(gameResult == GameResult.PLAYER_1_WIN){
             currentMatch.setCurrentGameWinner(currentMatch.getPlayer1());
             setResult = setScoreCalculation.calculate(currentMatch);
         } else if(gameResult == GameResult.PLAYER_2_WIN){
             currentMatch.setCurrentGameWinner(currentMatch.getPlayer2());
             setResult = setScoreCalculation.calculate(currentMatch);
         }
+        currentMatch.setCurrentGameWinner(null);
+        currentMatch.setCurrentSetWinner(null);
+
         OngoingMatchesService.getInstance().update(currentMatch.getId(), currentMatch);
     }
 }

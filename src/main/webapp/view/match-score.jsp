@@ -39,44 +39,44 @@
             <div class="games-container">
                 <p>Games</p>
                 <div class="subelement">
-                    <p>3</p>
+                    <p><%= currentMatch.getSetScoreOfPlayer1() %></p>
                 </div>
                 <div class="subelement">
-                    <p>4</p>
+                    <p><%= currentMatch.getSetScoreOfPlayer2() %></p>
                 </div>
             </div>
             <div class="sets-container">
                 <p>Sets</p>
                 <div class="subelement">
-                    <p>3</p>
+                    <p><%= currentMatch.getMatchScoreOfPlayer1() %></p>
                 </div>
                 <div class="subelement">
-                    <p>4</p>
+                    <p><%= currentMatch.getMatchScoreOfPlayer2() %></p>
                 </div>
             </div>
             <div class="players-container">
                 <p>Player</p>
                 <div class="subelement" id="subelement_player_1">
-                    <p><%= currentMatch.getPlayer1().getName()%></p>
+                    <p><%= currentMatch.getPlayer1().getName() %></p>
                 </div>
                 <div class="subelement" id="subelement_player_2">
-                    <p><%= currentMatch.getPlayer2().getName()%></p>
+                    <p><%= currentMatch.getPlayer2().getName() %></p>
                 </div>
             </div>
             <div class="previous-sets-container">
                 <p>Previous Sets</p>
                 <div class="previous-set-container">
                     <div class="previous-set-subcontainer" id="previous-set-subcontainer-1">
-                        <p>11</p>
+                        <p><%= currentMatch.getPreviousSet1ScoreOfPlayer1() %></p>
                     </div>
                     <div class="previous-set-subcontainer" id="previous-set-subcontainer-2">
-                        <p>22</p>
+                        <p><%= currentMatch.getPreviousSet1ScoreOfPlayer2() %></p>
                     </div>
                     <div class="previous-set-subcontainer" id="previous-set-subcontainer-3">
-                        <p>33</p>
+                        <p><%= currentMatch.getPreviousSet2ScoreOfPlayer1() %></p>
                     </div>
                     <div class="previous-set-subcontainer" id="previous-set-subcontainer-4">
-                        <p>44</p>
+                        <p><%= currentMatch.getPreviousSet2ScoreOfPlayer2() %></p>
                     </div>
                 </div>
             </div>
