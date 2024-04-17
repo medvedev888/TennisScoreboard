@@ -11,7 +11,7 @@ public class SetScoreCalculation implements Calculation<SetResult> {
         Player currentGameWinner = currentMatch.getCurrentGameWinner();
         if(currentMatch.getMatchState() == MatchState.IN_PROCESS){
             // first player won the game in game-phase
-            if(currentGameWinner == currentMatch.getPlayer1()){
+            if(currentGameWinner.equals(currentMatch.getPlayer1())){
                 currentMatch.setSetScoreOfPlayer1(currentMatch.getSetScoreOfPlayer1() + 1);
 
                 if((currentMatch.getSetScoreOfPlayer1() == 6 && currentMatch.getSetScoreOfPlayer2() <= 4) ||
@@ -34,7 +34,7 @@ public class SetScoreCalculation implements Calculation<SetResult> {
                     }
                 }
                 // second player won the game in game-phase
-            } else if(currentGameWinner == currentMatch.getPlayer2()){
+            } else if(currentGameWinner.equals(currentMatch.getPlayer2())){
                 currentMatch.setSetScoreOfPlayer2(currentMatch.getSetScoreOfPlayer2() + 1);
 
                 if((currentMatch.getSetScoreOfPlayer2() == 6 && currentMatch.getSetScoreOfPlayer1() <= 4) ||
@@ -44,7 +44,7 @@ public class SetScoreCalculation implements Calculation<SetResult> {
 
                     currentMatch.setSetScoreOfPlayer1(0);
                     currentMatch.setSetScoreOfPlayer2(0);
-                    return SetResult.PLAYER_1_WIN;
+                    return SetResult.PLAYER_2_WIN;
                 } else if(currentMatch.getSetScoreOfPlayer2() >= 6 && currentMatch.getSetScoreOfPlayer1() >= 6){
                     if(currentMatch.getSetScoreOfPlayer2() - currentMatch.getSetScoreOfPlayer1() == 2){
 
@@ -52,7 +52,7 @@ public class SetScoreCalculation implements Calculation<SetResult> {
 
                         currentMatch.setSetScoreOfPlayer1(0);
                         currentMatch.setSetScoreOfPlayer2(0);
-                        return SetResult.PLAYER_1_WIN;
+                        return SetResult.PLAYER_2_WIN;
                     }
                 }
             }
@@ -64,7 +64,7 @@ public class SetScoreCalculation implements Calculation<SetResult> {
 
     private void setPreviousSets(CurrentMatch currentMatch){
         // filling out the fields previous sets
-        if(currentMatch.getPreviousSet1ScoreOfPlayer1() == 0 && currentMatch.getPreviousSet2ScoreOfPlayer1() == 0){
+        if(currentMatch.getPreviousSet1ScoreOfPlayer1() == 0 && currentMatch.getPreviousSet1ScoreOfPlayer2() == 0){
             currentMatch.setPreviousSet1ScoreOfPlayer1(currentMatch.getSetScoreOfPlayer1());
             currentMatch.setPreviousSet1ScoreOfPlayer2(currentMatch.getSetScoreOfPlayer2());
         } else {
