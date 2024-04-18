@@ -70,10 +70,10 @@
                         <p><%= currentMatch.getPreviousSet1ScoreOfPlayer1() %></p>
                     </div>
                     <div class="previous-set-subcontainer" id="previous-set-subcontainer-2">
-                        <p><%= currentMatch.getPreviousSet1ScoreOfPlayer2() %></p>
+                        <p><%= currentMatch.getPreviousSet2ScoreOfPlayer1() %></p>
                     </div>
                     <div class="previous-set-subcontainer" id="previous-set-subcontainer-3">
-                        <p><%= currentMatch.getPreviousSet2ScoreOfPlayer1() %></p>
+                        <p><%= currentMatch.getPreviousSet1ScoreOfPlayer2() %></p>
                     </div>
                     <div class="previous-set-subcontainer" id="previous-set-subcontainer-4">
                         <p><%= currentMatch.getPreviousSet2ScoreOfPlayer2() %></p>

@@ -69,7 +69,7 @@ public class SetScoreCalculation implements Calculation<SetResult> {
         if(currentMatch.getPreviousSet1ScoreOfPlayer1() == 0 && currentMatch.getPreviousSet1ScoreOfPlayer2() == 0){
             currentMatch.setPreviousSet1ScoreOfPlayer1(currentMatch.getSetScoreOfPlayer1());
             currentMatch.setPreviousSet1ScoreOfPlayer2(currentMatch.getSetScoreOfPlayer2());
-        } else {
+        } else if(currentMatch.getPreviousSet2ScoreOfPlayer1() == 0 && currentMatch.getPreviousSet2ScoreOfPlayer2() == 0){
             currentMatch.setPreviousSet2ScoreOfPlayer1(currentMatch.getSetScoreOfPlayer1());
             currentMatch.setPreviousSet2ScoreOfPlayer2(currentMatch.getSetScoreOfPlayer2());
         }

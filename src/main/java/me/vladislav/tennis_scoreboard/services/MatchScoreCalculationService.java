@@ -28,9 +28,7 @@ public class MatchScoreCalculationService {
             gameResult = GameResult.IN_PROCESS;
         }
 
+        currentMatch.setCurrentPointWinner(null);
         currentMatch.setCurrentGameWinner(null);
-//        currentMatch.setCurrentSetWinner(null);
-
-//        OngoingMatchesService.getInstance().update(currentMatch.getId(), currentMatch);
     }
 }

@@ -44,7 +44,6 @@ public class MatchScoreServlet extends HttpServlet {
             throw new RuntimeException("Number of winning points not correct");
         }
         matchScoreCalculationService.calculation(currentMatch);
-        currentMatch.setCurrentPointWinner(null);
 
         // проверк не закончился ли матч
         resp.sendRedirect("match-score?uuid=" + uuid);
