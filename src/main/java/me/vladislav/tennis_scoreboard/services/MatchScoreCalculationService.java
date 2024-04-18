@@ -1,5 +1,6 @@
 package me.vladislav.tennis_scoreboard.services;
 
+import lombok.Setter;
 import me.vladislav.tennis_scoreboard.dto.CurrentMatch;
 import me.vladislav.tennis_scoreboard.services.business_logic.GameCalculation.GameResult;
 import me.vladislav.tennis_scoreboard.services.business_logic.GameCalculation.GameScoreCalculation;
@@ -12,7 +13,9 @@ public class MatchScoreCalculationService {
     private final GameScoreCalculation gameScoreCalculation = new GameScoreCalculation();
     private final SetScoreCalculation setScoreCalculation = new SetScoreCalculation();
     private final MatchScoreCalculation matchScoreCalculation = new MatchScoreCalculation();
+    @Setter
     private GameResult gameResult = GameResult.IN_PROCESS;
+    @Setter
     private SetResult setResult = SetResult.IN_PROCESS;
 
     public void calculation(CurrentMatch currentMatch){

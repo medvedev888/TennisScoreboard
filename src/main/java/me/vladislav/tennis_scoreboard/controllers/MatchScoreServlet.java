@@ -10,6 +10,9 @@ import jakarta.servlet.http.HttpServletResponse;
 import me.vladislav.tennis_scoreboard.dto.CurrentMatch;
 import me.vladislav.tennis_scoreboard.services.MatchScoreCalculationService;
 import me.vladislav.tennis_scoreboard.services.OngoingMatchesService;
+import me.vladislav.tennis_scoreboard.services.business_logic.GameCalculation.GameResult;
+import me.vladislav.tennis_scoreboard.services.business_logic.MatchCalculation.MatchState;
+import me.vladislav.tennis_scoreboard.services.business_logic.SetCalculation.SetResult;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -44,7 +47,10 @@ public class MatchScoreServlet extends HttpServlet {
             throw new RuntimeException("Number of winning points not correct");
         }
         matchScoreCalculationService.calculation(currentMatch);
-
+        if(currentMatch.getMatchState() == MatchState.PLAYER_1_WON || currentMatch.getMatchState() == MatchState.PLAYER_2_WON){
+            matchScoreCalculationService.setGameResult(GameResult.IN_PROCESS);
+            matchScoreCalculationService.setSetResult(SetResult.IN_PROCESS);
+        }
         // проверк не закончился ли матч
         resp.sendRedirect("match-score?uuid=" + uuid);
     }
