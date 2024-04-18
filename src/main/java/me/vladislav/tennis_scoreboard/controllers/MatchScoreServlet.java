@@ -32,7 +32,7 @@ public class MatchScoreServlet extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         UUID uuid = UUID.fromString(req.getParameter("uuid"));
         CurrentMatch currentMatch = OngoingMatchesService.getInstance().getCurrentMatch(uuid);
         int numberOfWinnerPoint = Integer.parseInt(req.getParameter("number_of_winner_point"));
@@ -44,6 +44,8 @@ public class MatchScoreServlet extends HttpServlet {
             throw new RuntimeException("Number of winning points not correct");
         }
         matchScoreCalculationService.calculation(currentMatch);
+        currentMatch.setCurrentPointWinner(null);
+
         // проверк не закончился ли матч
         resp.sendRedirect("match-score?uuid=" + uuid);
     }

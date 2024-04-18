@@ -20,14 +20,15 @@ public class MatchScoreCalculationService {
         else if(gameResult == GameResult.PLAYER_1_WIN){
             currentMatch.setCurrentGameWinner(currentMatch.getPlayer1());
             setResult = setScoreCalculation.calculate(currentMatch);
+//            gameResult = GameResult.IN_PROCESS;
         } else if(gameResult == GameResult.PLAYER_2_WIN){
             currentMatch.setCurrentGameWinner(currentMatch.getPlayer2());
             setResult = setScoreCalculation.calculate(currentMatch);
+
+//            gameResult = GameResult.IN_PROCESS;
         }
-        currentMatch.setCurrentGameWinner(null);
-        currentMatch.setCurrentSetWinner(null);
-        gameResult = GameResult.IN_PROCESS;
-        setResult = SetResult.IN_PROCESS;
+//        currentMatch.setCurrentGameWinner(null);
+//        currentMatch.setCurrentSetWinner(null);
 
         OngoingMatchesService.getInstance().update(currentMatch.getId(), currentMatch);
     }

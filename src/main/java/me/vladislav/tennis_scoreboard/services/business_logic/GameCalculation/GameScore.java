@@ -7,18 +7,11 @@ public enum GameScore {
     FIRST_POINT("15"),
     SECOND_POINT("30"),
     THIRD_POINT("40"),
-    ADVANTAGE("AD");
+    ADVANTAGE("AD"),
+    ADVANTAGE_PLUS_ONE("AD+1");
 
     public GameScore next(){
-        if(this == GameScore.THIRD_POINT){
-            return GameScore.START_POINT;
-        } else {
-            return values()[this.ordinal() + 1];
-        }
-    }
-
-    public GameScore nextInDeuceStage(){
-        if(this == GameScore.ADVANTAGE){
+        if(this == GameScore.ADVANTAGE_PLUS_ONE){
             return GameScore.START_POINT;
         } else {
             return values()[this.ordinal() + 1];

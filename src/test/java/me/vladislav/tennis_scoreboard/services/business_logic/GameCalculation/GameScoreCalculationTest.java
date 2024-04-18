@@ -5,6 +5,7 @@ import me.vladislav.tennis_scoreboard.models.Player;
 import me.vladislav.tennis_scoreboard.services.business_logic.MatchCalculation.MatchState;
 import org.junit.jupiter.api.Test;
 
+import java.lang.reflect.Field;
 import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -92,37 +93,9 @@ public class GameScoreCalculationTest {
         assertEquals(expected, actual, "Matches should be equal");
     }
 
-    //started score is AD : AD
-    // second player is win point
-    @Test
-    void testGameScoreCalculationADToAD(){
-        Player player1 = new Player(1, "Vlad");
-        Player player2 = new Player(2, "Maks");
-        UUID uuid = UUID.randomUUID();
-        CurrentMatch actual = new CurrentMatch(uuid, player1, player2, MatchState.IN_PROCESS);
-        CurrentMatch expected = new CurrentMatch(uuid, player1, player2, MatchState.IN_PROCESS);
-
-        //actual
-        actual.setCurrentPointWinner(player2);
-        actual.setGameScoreOfPlayer1(GameScore.ADVANTAGE);
-        actual.setGameScoreOfPlayer2(GameScore.ADVANTAGE);
-
-
-        //expected
-        expected.setCurrentPointWinner(player2);
-        expected.setGameScoreOfPlayer1(GameScore.THIRD_POINT);
-        expected.setGameScoreOfPlayer2(GameScore.ADVANTAGE);
-
-        GameScoreCalculation gameScoreCalculation = new GameScoreCalculation();
-
-        gameScoreCalculation.calculate(actual);
-
-        assertEquals(expected, actual, "Matches should be equal");
-    }
-
     // Test when the game score is AD:40 and the second player wins a point
     @Test
-    void testGameScoreCalculationADTo40(){
+    void testGameScoreCalculationADTo40() throws NoSuchFieldException, IllegalAccessException {
         Player player1 = new Player(1, "Vlad");
         Player player2 = new Player(2, "Maks");
         UUID uuid = UUID.randomUUID();
@@ -138,8 +111,8 @@ public class GameScoreCalculationTest {
 
         //expected
         expected.setCurrentPointWinner(player2);
-        expected.setGameScoreOfPlayer1(GameScore.ADVANTAGE);
-        expected.setGameScoreOfPlayer2(GameScore.ADVANTAGE);
+        expected.setGameScoreOfPlayer1(GameScore.THIRD_POINT);
+        expected.setGameScoreOfPlayer2(GameScore.THIRD_POINT);
 
         GameResult result = gameScoreCalculation.calculate(actual);
 
@@ -149,7 +122,7 @@ public class GameScoreCalculationTest {
 
     // Test when the game score is 40:AD and the second player wins a point
     @Test
-    void testGameScoreCalculation40ToAD(){
+    void testGameScoreCalculation40ToAD() throws IllegalAccessException, NoSuchFieldException {
         Player player1 = new Player(1, "Vlad");
         Player player2 = new Player(2, "Maks");
         UUID uuid = UUID.randomUUID();
