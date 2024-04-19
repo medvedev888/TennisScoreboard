@@ -51,7 +51,6 @@ public class MatchScoreServlet extends HttpServlet {
             matchScoreCalculationService.setGameResult(GameResult.IN_PROCESS);
             matchScoreCalculationService.setSetResult(SetResult.IN_PROCESS);
         }
-        // проверк не закончился ли матч
         resp.sendRedirect("match-score?uuid=" + uuid);
     }
 }

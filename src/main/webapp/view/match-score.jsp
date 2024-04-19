@@ -16,7 +16,6 @@
     <head>
         <title>Match Score</title>
         <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/match-score-style.css" />
-        <script src="<%=request.getContextPath()%>/scripts/linkContainerClickHandler.js" defer></script>
     </head>
     <body>
         <h1 class="heading">Match Score</h1>
@@ -99,9 +98,10 @@
         </div>
         <% if (currentMatch.getMatchState() == MatchState.PLAYER_1_WON ||
                 currentMatch.getMatchState() == MatchState.PLAYER_2_WON) { %>
-        <div class="link-container">
-            <a class = "link" href="${pageContext.request.contextPath}/view/index.jsp">Continue</a>
-        </div>
+        <form action="${pageContext.request.contextPath}/end-current-match" method="get">
+            <input type="hidden" name="uuid" value="<%= currentMatch.getId().toString() %>">
+            <button class="button" id="continue-button" name="button-continue" value="continue">Continue</button>
+        </form>
         <% } %>
     </body>
 </html>
