@@ -33,7 +33,7 @@ body {
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-around;
-    align-items: center;
+    align-items: flex-end;
 }
 
 .scoreboard-container > * {
@@ -42,6 +42,7 @@ body {
     border-radius: 30px;
     padding: 5px 30px 5px 30px;
     text-align: center;
+
     font-size: 30px;
     height: auto;
     width: auto;
@@ -70,35 +71,6 @@ body {
 .previous-set-subcontainer {
     position: relative;
 }
-
-/*.link {*/
-/*    font-size: 30px;*/
-/*    text-decoration-line: none;*/
-/*    color: rgb(17, 0, 0);*/
-/*}*/
-
-/*.link-container {*/
-/*    position: relative;*/
-/*    display: inline-block;*/
-/*    text-align: center;*/
-/*    padding: 15px 70px;*/
-/*    margin-left: 40%;*/
-/*    margin-top: 30px;*/
-/*    color: rgb(17, 0, 0);*/
-/*    border-radius: 30px;*/
-/*    background-color: #fad1bf;*/
-/*    box-shadow: 0 0 10px rgba(250, 209, 191, 0.8);*/
-/*    width: auto;*/
-/*    height: auto;*/
-/*}*/
-
-/*.link-container:hover {*/
-/*    background-color: #ffe8e0;*/
-/*    border-color: #ffe8e0;*/
-/*    transition: all 0.3s ease;*/
-/*    cursor: pointer;*/
-/*    box-shadow: 0 0 10px rgba(250, 209, 191, 0.8);*/
-/*}*/
 
 .button {
     font-family: "Reddit Mono", monospace;
@@ -131,10 +103,6 @@ body {
 #previous-set-subcontainer-3,
 #previous-set-subcontainer-4 {
     margin-bottom: 20px;
-}
-
-#container-1 {
-    top: 17px;
 }
 
 #subelement_player_1,

@@ -4,11 +4,9 @@
 <html>
 <head>
     <title>Finished Matches</title>
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/finished-matches-style.css" />
     <script src="<%=request.getContextPath()%>/scripts/clearFilter.js" defer></script>
-    <script src="<%=request.getContextPath()%>/scripts/linkContainerClickHandler.js" defer></script>
     <script src="<%=request.getContextPath()%>/scripts/placeholderHandler.js" defer></script>
-
-
 </head>
 <body>
     <h1 class="heading">Finished Matches</h1>
@@ -21,7 +19,7 @@
         </form>
     </div>
     <div class="table-container">
-        <table>
+        <table class="table">
             <thead>
                 <th>Match ID</th>
                 <th>Player 1</th>
@@ -33,12 +31,14 @@
         </table>
     </div>
     <div class="pagination-container">
-        <button>Previous</button>
-        <p>1</p>
-        <button>Next</button>
+        <button class="button">Prev</button>
+        <div id="number-of-page-container"><p>1</p></div>
+        <button class="button">Next</button>
     </div>
     <div class="link-container">
-        <a class = "link" href="${pageContext.request.contextPath}/view/index.jsp">Back</a>
+        <div class="link-subcontainer">
+            <a class = "link" href="${pageContext.request.contextPath}/view/index.jsp">Back</a>
+        </div>
     </div>
     </body>
 </html>

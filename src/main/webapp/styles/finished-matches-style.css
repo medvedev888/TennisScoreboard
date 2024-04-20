@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@200..900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    border: 0px;
+    outline: 0;
+    box-sizing: border-box;
+    font-family: "Reddit Mono", monospace;
+}
+
+body {
+    background-color: rgb(17, 0, 0);
+    font-size: 20px;
+    font-optical-sizing: auto;
+    font-style: normal;
+    color: #fad1bf;
+}
+
+.heading {
+    position: relative;
+    text-align: center;
+    font-size: 140px;
+    display: block;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
+
+/* Change Autocomplete styles in Chrome*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active  {
+    -webkit-text-fill-color: #fad1bf;
+    box-shadow: 0 0 0 30px rgb(17, 0, 0) inset;
+}
+
+input[type="text"] {
+    font-size: 20px;
+    color: #fad1bf;
+    background-color: rgb(17, 0, 0);
+    padding-left: 20px;
+    border: 1px solid #fad1bf;
+    border-radius: 30px;
+    width: 400px;
+    height: 40px;
+}
+
+input[type="text"]::placeholder {
+    color: #fad1bf;
+}
+
+.link {
+    font-size: 30px;
+    text-decoration-line: none;
+    color: rgb(17, 0, 0);
+}
+
+.link-subcontainer {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    padding: 5px 50px;
+    color: rgb(17, 0, 0);
+    border-radius: 30px;
+    background-color: #fad1bf;
+    box-shadow: 0 0 10px rgba(250, 209, 191, 0.8);
+}
+
+.link-subcontainer:hover {
+    background-color: #ffe8e0;
+    border-color: #ffe8e0;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(250, 209, 191, 0.8);
+}
+
+.button {
+    font-family: "Reddit Mono", monospace;
+    font-size: 20px;
+    display: inline;
+    background-color: #fad1bf;
+    padding: 5px 10px;
+    border: 1px solid #fad1bf;
+    width: auto;
+    border-radius: 30px;
+    box-shadow: 0 0 10px rgba(250, 209, 191, 0.8);
+}
+
+.button:hover {
+    background-color: #ffe8e0;
+    border-color: #ffe8e0;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(250, 209, 191, 0.8);
+    cursor: pointer;
+}
+
+.filter-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.table-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.table {
+    border: 1px solid #fad1bf;
+    border-radius: 30px;
+    padding: 5px 30px;
+}
+
+.table thead {
+    text-align: left;
+}
+
+.table thead th{
+    padding: 5px 50px;
+}
+
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.pagination-container > * {
+    margin-right: 10px;
+}
+
+.link-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#number-of-page-container {
+    padding: 3px 5px;
+    border: 1px solid #fad1bf;
+    width: auto;
+    border-radius: 30px;
+}
