@@ -24,10 +24,10 @@
                     currentMatch.getMatchState() != MatchState.PLAYER_2_WON) { %>
             <div class="buttons-container" id="container-1">
                 <form action="${pageContext.request.contextPath}/match-score?uuid=<%= uuid.toString() %>&number_of_winner_point=1" method="post">
-                    <button class="button" name="button-player-1-win-a-point" value="player-1-win">Player 1<br>wins<br>a point</button>
+                    <button class="button">Player 1<br>wins<br>a point</button>
                 </form>
                 <form action="${pageContext.request.contextPath}/match-score?uuid=<%= uuid.toString()%>&number_of_winner_point=2" method="post">
-                    <button class="button" name="button-player-2-win-a-point" value="player-2-win">Player 2<br>wins<br>a point</button>
+                    <button class="button">Player 2<br>wins<br>a point</button>
                 </form>
             </div>
             <% } %>
@@ -100,7 +100,7 @@
                 currentMatch.getMatchState() == MatchState.PLAYER_2_WON) { %>
         <form action="${pageContext.request.contextPath}/end-current-match" method="get">
             <input type="hidden" name="uuid" value="<%= currentMatch.getId().toString() %>">
-            <button class="button" id="continue-button" name="button-continue" value="continue">Continue</button>
+            <button class="button" id="continue-button">Continue</button>
         </form>
         <% } %>
     </body>

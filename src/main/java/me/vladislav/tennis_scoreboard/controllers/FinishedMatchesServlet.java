@@ -1,5 +1,6 @@
 package me.vladislav.tennis_scoreboard.controllers;
 
+import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -10,7 +11,7 @@ import java.io.IOException;
 @WebServlet(name = "FinishedMatches", value = "/matches")
 public class FinishedMatchesServlet extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        response.getWriter().write("Finished Matches");
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getRequestDispatcher("view/finished-matches.jsp").forward(request, response);
     }
 }
