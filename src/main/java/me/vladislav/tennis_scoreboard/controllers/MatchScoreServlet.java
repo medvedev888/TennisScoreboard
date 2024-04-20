@@ -11,6 +11,7 @@ import me.vladislav.tennis_scoreboard.dao.MatchDataAccessObject;
 import me.vladislav.tennis_scoreboard.dao.PlayerDataAccessObject;
 import me.vladislav.tennis_scoreboard.dto.CurrentMatch;
 import me.vladislav.tennis_scoreboard.models.Match;
+import me.vladislav.tennis_scoreboard.services.FinishedMatchesPersistenceService;
 import me.vladislav.tennis_scoreboard.services.MatchScoreCalculationService;
 import me.vladislav.tennis_scoreboard.services.OngoingMatchesService;
 import me.vladislav.tennis_scoreboard.services.business_logic.GameCalculation.GameResult;
@@ -25,12 +26,14 @@ import java.util.UUID;
 public class MatchScoreServlet extends HttpServlet {
     private MatchScoreCalculationService matchScoreCalculationService;
     private MatchDataAccessObject matchDataAccessObject;
+    private FinishedMatchesPersistenceService finishedMatchesPersistenceService;
 
     @Override
     public void init() throws ServletException {
         super.init();
         ServletContext context = getServletContext();
         matchScoreCalculationService = (MatchScoreCalculationService) context.getAttribute("matchScoreCalculationService");
+        finishedMatchesPersistenceService = (FinishedMatchesPersistenceService) context.getAttribute("finishedMatchesPersistenceService");
         matchDataAccessObject = (MatchDataAccessObject) context.getAttribute("matchDataAccessObject");
     }
 
@@ -56,11 +59,8 @@ public class MatchScoreServlet extends HttpServlet {
             matchScoreCalculationService.setGameResult(GameResult.IN_PROCESS);
             matchScoreCalculationService.setSetResult(SetResult.IN_PROCESS);
 
-            Match match = new Match(currentMatch.getPlayer1(), currentMatch.getPlayer2(), currentMatch.getMatchState() == MatchState.PLAYER_1_WON ? currentMatch.getPlayer1() : currentMatch.getPlayer2());
-            matchDataAccessObject.add(match);
-            resp.getWriter().write("<html><body><h1>" + matchDataAccessObject.getList().toString() + "</h1></body></html>");
-        } else {
-            resp.sendRedirect("match-score?uuid=" + uuid);
+            finishedMatchesPersistenceService.saveMatch(currentMatch, matchDataAccessObject);
         }
+        resp.sendRedirect("match-score?uuid=" + uuid);
     }
 }

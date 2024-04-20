@@ -6,6 +6,7 @@ import jakarta.servlet.ServletContextListener;
 import jakarta.servlet.annotation.WebListener;
 import me.vladislav.tennis_scoreboard.dao.MatchDataAccessObject;
 import me.vladislav.tennis_scoreboard.dao.PlayerDataAccessObject;
+import me.vladislav.tennis_scoreboard.services.FinishedMatchesPersistenceService;
 import me.vladislav.tennis_scoreboard.services.MatchScoreCalculationService;
 
 @WebListener
@@ -16,10 +17,12 @@ public class Listener implements ServletContextListener {
         PlayerDataAccessObject playerDataAccessObject = new PlayerDataAccessObject();
         MatchScoreCalculationService matchScoreCalculationService = new MatchScoreCalculationService();
         MatchDataAccessObject matchDataAccessObject = new MatchDataAccessObject();
+        FinishedMatchesPersistenceService finishedMatchesPersistenceService = new FinishedMatchesPersistenceService();
 
         context.setAttribute("playerDataAccessObject", playerDataAccessObject);
-        context.setAttribute("matchScoreCalculationService", matchScoreCalculationService);
         context.setAttribute("matchDataAccessObject", matchDataAccessObject);
+        context.setAttribute("matchScoreCalculationService", matchScoreCalculationService);
+        context.setAttribute("finishedMatchesPersistenceService", finishedMatchesPersistenceService);
     }
 
     @Override
