@@ -7,7 +7,10 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import me.vladislav.tennis_scoreboard.dao.MatchDataAccessObject;
+import me.vladislav.tennis_scoreboard.dao.PlayerDataAccessObject;
 import me.vladislav.tennis_scoreboard.dto.CurrentMatch;
+import me.vladislav.tennis_scoreboard.models.Match;
 import me.vladislav.tennis_scoreboard.services.MatchScoreCalculationService;
 import me.vladislav.tennis_scoreboard.services.OngoingMatchesService;
 import me.vladislav.tennis_scoreboard.services.business_logic.GameCalculation.GameResult;
@@ -21,12 +24,14 @@ import java.util.UUID;
 @WebServlet(name="matchScore", value = "/match-score")
 public class MatchScoreServlet extends HttpServlet {
     private MatchScoreCalculationService matchScoreCalculationService;
+    private MatchDataAccessObject matchDataAccessObject;
 
     @Override
     public void init() throws ServletException {
         super.init();
         ServletContext context = getServletContext();
         matchScoreCalculationService = (MatchScoreCalculationService) context.getAttribute("matchScoreCalculationService");
+        matchDataAccessObject = (MatchDataAccessObject) context.getAttribute("matchDataAccessObject");
     }
 
     @Override
@@ -50,7 +55,12 @@ public class MatchScoreServlet extends HttpServlet {
         if(currentMatch.getMatchState() == MatchState.PLAYER_1_WON || currentMatch.getMatchState() == MatchState.PLAYER_2_WON){
             matchScoreCalculationService.setGameResult(GameResult.IN_PROCESS);
             matchScoreCalculationService.setSetResult(SetResult.IN_PROCESS);
+
+            Match match = new Match(currentMatch.getPlayer1(), currentMatch.getPlayer2(), currentMatch.getMatchState() == MatchState.PLAYER_1_WON ? currentMatch.getPlayer1() : currentMatch.getPlayer2());
+            matchDataAccessObject.add(match);
+            resp.getWriter().write("<html><body><h1>" + matchDataAccessObject.getList().toString() + "</h1></body></html>");
+        } else {
+            resp.sendRedirect("match-score?uuid=" + uuid);
         }
-        resp.sendRedirect("match-score?uuid=" + uuid);
     }
 }

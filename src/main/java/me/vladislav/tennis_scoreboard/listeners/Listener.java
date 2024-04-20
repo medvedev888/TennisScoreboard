@@ -4,6 +4,7 @@ import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletContextEvent;
 import jakarta.servlet.ServletContextListener;
 import jakarta.servlet.annotation.WebListener;
+import me.vladislav.tennis_scoreboard.dao.MatchDataAccessObject;
 import me.vladislav.tennis_scoreboard.dao.PlayerDataAccessObject;
 import me.vladislav.tennis_scoreboard.services.MatchScoreCalculationService;
 
@@ -14,9 +15,11 @@ public class Listener implements ServletContextListener {
         ServletContext context = sce.getServletContext();
         PlayerDataAccessObject playerDataAccessObject = new PlayerDataAccessObject();
         MatchScoreCalculationService matchScoreCalculationService = new MatchScoreCalculationService();
+        MatchDataAccessObject matchDataAccessObject = new MatchDataAccessObject();
 
         context.setAttribute("playerDataAccessObject", playerDataAccessObject);
         context.setAttribute("matchScoreCalculationService", matchScoreCalculationService);
+        context.setAttribute("matchDataAccessObject", matchDataAccessObject);
     }
 
     @Override

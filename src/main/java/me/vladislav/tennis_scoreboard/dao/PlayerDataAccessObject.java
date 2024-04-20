@@ -57,7 +57,7 @@ public class PlayerDataAccessObject implements DataAccessObject<Player> {
     public void add(Player player) {
         try (Session session = HibernateUtils.getSession()) {
             session.beginTransaction();
-            session.save(player);
+            session.persist(player);
             session.getTransaction().commit();
         } catch (Exception e) {
             e.printStackTrace();
