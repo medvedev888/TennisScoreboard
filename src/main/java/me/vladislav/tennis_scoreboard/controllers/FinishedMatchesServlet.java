@@ -28,7 +28,12 @@ public class FinishedMatchesServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int page = Integer.parseInt(request.getParameter("page"));
+        int page;
+        try {
+            page = Integer.parseInt(request.getParameter("page"));
+        } catch (NumberFormatException e) {
+            page = 1;
+        }
         String playerName = request.getParameter("filter_by_player_name");
         PaginationResultDTO paginationResultDTO = finishedMatchesPersistenceService.getListOfMatchesByPlayerNameForPage(page, playerName, matchDataAccessObject);
         request.setAttribute("paginationResultDTO", paginationResultDTO);

@@ -27,8 +27,7 @@
         <form action="" method="get">
             <input type="text" maxlength="20" class="player" name="filter_by_player_name"
                    placeholder="Enter the name of player">
-            <input type="hidden" maxlength="20" class="player" name="page" value="<%= numberOfPage%>"
-                   placeholder="Enter the name of player">
+            <input type="hidden" class="page" name="page" value="<%= numberOfPage%>">
             <button class="button" id="search-button" formaction="${pageContext.request.contextPath}/matches">Search</button>
             <button class="button" id="clear-button" formaction="${pageContext.request.contextPath}/matches">Clear</button>
         </form>
@@ -45,9 +44,9 @@
             <tbody>
                 <% for(Match match : paginationResultDTO.getListOfFinishedMatches()){ %>
                     <tr>
-                        <th>match.getId()</th>
-                        <th>match.getPlayer1().getName()</th>
-                        <th>match.getPlayer2().getName()</th>
+                        <th><%=match.getId()%></th>
+                        <th><%=match.getPlayer1().getName()%></th>
+                        <th><%=match.getPlayer2().getName()%></th>
                     </tr>
                 <% } %>
             </tbody>

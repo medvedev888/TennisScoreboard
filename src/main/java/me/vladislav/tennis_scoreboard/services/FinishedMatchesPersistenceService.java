@@ -24,13 +24,23 @@ public class FinishedMatchesPersistenceService {
         List<Match> matches = new ArrayList<>();
         PaginationResultDTO paginationResultDTO = new PaginationResultDTO(page, false);
 
-        if (optionalListOfMatches.isPresent()) {
+        if(playerName == null){
+            optionalListOfMatches = matchDataAccessObject.getList();
+            if(optionalListOfMatches.isPresent()){
+                List<Match> listOfMatches = optionalListOfMatches.get();
+                int startIndex = (page - 1) * 5;
+                int endIndex = Math.min(startIndex + 5, listOfMatches.size());
+                matches = listOfMatches.subList(startIndex, endIndex);
+                paginationResultDTO.setHasNextPage(listOfMatches.size() > page * 5);
+            }
+        } else if (optionalListOfMatches.isPresent()) {
             List<Match> listOfMatches = optionalListOfMatches.get();
             int startIndex = (page - 1) * 5;
             int endIndex = Math.min(startIndex + 5, listOfMatches.size());
             matches = listOfMatches.subList(startIndex, endIndex);
-
             paginationResultDTO.setHasNextPage(listOfMatches.size() > page * 5);
+        } else {
+            throw new RuntimeException("FinishedMatchesPersistenceService is not working properly");
         }
 
         paginationResultDTO.setListOfFinishedMatches(matches);
