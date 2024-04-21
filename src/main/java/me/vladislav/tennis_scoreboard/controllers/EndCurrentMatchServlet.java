@@ -9,7 +9,7 @@ import me.vladislav.tennis_scoreboard.services.OngoingMatchesService;
 import java.io.IOException;
 import java.util.UUID;
 
-@WebServlet(name = "EndCurrentMatchServlet", value = "/end-current-match")
+@WebServlet(name = "endCurrentMatchServlet", value = "/end-current-match")
 public class EndCurrentMatchServlet extends HttpServlet {
 
     @Override

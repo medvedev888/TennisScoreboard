@@ -117,15 +117,17 @@ input[type="text"]::placeholder {
 .table {
     border: 1px solid #fad1bf;
     border-radius: 30px;
-    padding: 5px 30px;
+    padding: 10px 30px;
 }
 
 .table thead {
     text-align: left;
 }
 
-.table thead th{
-    padding: 5px 50px;
+.table thead tr th{
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 10px;
 }
 
 .pagination-container {

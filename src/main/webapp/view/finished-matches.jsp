@@ -21,12 +21,38 @@
     <div class="table-container">
         <table class="table">
             <thead>
+            <tr>
                 <th>Match ID</th>
                 <th>Player 1</th>
                 <th>Player 2</th>
+            </tr>
             </thead>
             <tbody>
-
+                <tr>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                </tr>
+                <tr>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                </tr>
+                <tr>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                </tr>
+                <tr>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                </tr>
+                <tr>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                </tr>
             </tbody>
         </table>
     </div>
