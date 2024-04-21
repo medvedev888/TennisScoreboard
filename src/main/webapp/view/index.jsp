@@ -5,7 +5,7 @@
     <head>
         <title>Tennis scoreboard</title>
         <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/index-style.css" />
-        <script src="<%=request.getContextPath()%>/scripts/linkContainerClickHandler.js" defer></script>
+        <script src="<%=request.getContextPath()%>/scripts/linkContainerClickHandlerScript.js" defer></script>
     </head>
     <body>
         <h1 class="heading">Tennis scoreboard</h1>

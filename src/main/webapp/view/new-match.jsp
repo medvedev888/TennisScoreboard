@@ -4,7 +4,7 @@
 <head>
     <title>New match</title>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/new-match-style.css" />
-    <script src="<%=request.getContextPath()%>/scripts/placeholderHandler.js" defer></script>
+    <script src="<%=request.getContextPath()%>/scripts/placeholderHandlerScript.js" defer></script>
 
 </head>
     <body>
