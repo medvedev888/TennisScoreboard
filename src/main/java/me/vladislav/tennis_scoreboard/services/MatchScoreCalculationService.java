@@ -21,7 +21,7 @@ public class MatchScoreCalculationService {
     public void calculation(CurrentMatchDTO currentMatchDTO){
 
         if(gameResult == GameResult.IN_PROCESS) {
-             gameResult = gameScoreCalculation.calculate(currentMatchDTO);
+            gameResult = gameScoreCalculation.calculate(currentMatchDTO);
         }
 
         if(gameResult == GameResult.PLAYER_1_WIN){

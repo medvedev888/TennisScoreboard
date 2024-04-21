@@ -13,7 +13,7 @@ public class MatchDataAccessObject implements DataAccessObject<Match> {
     public Optional<List<Match>> getMatchesByPlayerName(String playerName){
         try(Session session = HibernateUtils.getSessionFactory().openSession()){
             session.beginTransaction();
-            Query<Match> query = session.createQuery("SELECT m FROM Match m JOIN Player p1 JOIN Player p2 WHERE p1.name=:playerName OR p2.name=:playerName", Match.class);
+            Query<Match> query = session.createQuery("SELECT m FROM Match m JOIN m.player1 p1 JOIN m.player2 p2 WHERE p1.name=:playerName OR p2.name=:playerName", Match.class);
             query.setParameter("playerName", playerName);
             List<Match> matches = query.getResultList();
             session.getTransaction().commit();
