@@ -8,8 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Data
-public class PaginationResultDataAccessObject {
-    private final List<Match> listOfFinishedMatches = new ArrayList<Match>(5);
+public class PaginationResultDTO {
+    private List<Match> listOfFinishedMatches = new ArrayList<Match>(5);
     @NonNull
     private int currentPage;
     @NonNull

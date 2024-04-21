@@ -1,6 +1,6 @@
 package me.vladislav.tennis_scoreboard.services.business_logic.SetCalculation;
 
-import me.vladislav.tennis_scoreboard.dto.CurrentMatch;
+import me.vladislav.tennis_scoreboard.dto.CurrentMatchDTO;
 import me.vladislav.tennis_scoreboard.models.Player;
 import me.vladislav.tennis_scoreboard.services.business_logic.MatchCalculation.MatchState;
 import org.junit.jupiter.api.Test;
@@ -17,8 +17,8 @@ public class SetScoreCalculationTest {
         Player player1 = new Player(1, "Vlad");
         Player player2 = new Player(2, "Maks");
         UUID uuid = UUID.randomUUID();
-        CurrentMatch actual = new CurrentMatch(uuid, player1, player2, MatchState.IN_PROCESS);
-        CurrentMatch expected = new CurrentMatch(uuid, player1, player2, MatchState.IN_PROCESS);
+        CurrentMatchDTO actual = new CurrentMatchDTO(uuid, player1, player2, MatchState.IN_PROCESS);
+        CurrentMatchDTO expected = new CurrentMatchDTO(uuid, player1, player2, MatchState.IN_PROCESS);
 
         //actual
         actual.setCurrentGameWinner(player1);
@@ -40,8 +40,8 @@ public class SetScoreCalculationTest {
         Player player1 = new Player(1, "Vlad");
         Player player2 = new Player(2, "Maks");
         UUID uuid = UUID.randomUUID();
-        CurrentMatch actual = new CurrentMatch(uuid, player1, player2, MatchState.IN_PROCESS);
-        CurrentMatch expected = new CurrentMatch(uuid, player1, player2, MatchState.IN_PROCESS);
+        CurrentMatchDTO actual = new CurrentMatchDTO(uuid, player1, player2, MatchState.IN_PROCESS);
+        CurrentMatchDTO expected = new CurrentMatchDTO(uuid, player1, player2, MatchState.IN_PROCESS);
 
         //actual
         actual.setCurrentGameWinner(player2);
@@ -69,8 +69,8 @@ public class SetScoreCalculationTest {
         Player player1 = new Player(1, "Vlad");
         Player player2 = new Player(2, "Maks");
         UUID uuid = UUID.randomUUID();
-        CurrentMatch actual = new CurrentMatch(uuid, player1, player2, MatchState.IN_PROCESS);
-        CurrentMatch expected = new CurrentMatch(uuid, player1, player2, MatchState.IN_PROCESS);
+        CurrentMatchDTO actual = new CurrentMatchDTO(uuid, player1, player2, MatchState.IN_PROCESS);
+        CurrentMatchDTO expected = new CurrentMatchDTO(uuid, player1, player2, MatchState.IN_PROCESS);
 
         //actual
         actual.setCurrentGameWinner(player1);
@@ -98,8 +98,8 @@ public class SetScoreCalculationTest {
         Player player1 = new Player(1, "Vlad");
         Player player2 = new Player(2, "Maks");
         UUID uuid = UUID.randomUUID();
-        CurrentMatch actual = new CurrentMatch(uuid, player1, player2, MatchState.IN_PROCESS);
-        CurrentMatch expected = new CurrentMatch(uuid, player1, player2, MatchState.IN_PROCESS);
+        CurrentMatchDTO actual = new CurrentMatchDTO(uuid, player1, player2, MatchState.IN_PROCESS);
+        CurrentMatchDTO expected = new CurrentMatchDTO(uuid, player1, player2, MatchState.IN_PROCESS);
 
         //actual
         actual.setCurrentGameWinner(player2);
@@ -124,8 +124,8 @@ public class SetScoreCalculationTest {
         Player player1 = new Player(1, "Vlad");
         Player player2 = new Player(2, "Maks");
         UUID uuid = UUID.randomUUID();
-        CurrentMatch actual = new CurrentMatch(uuid, player1, player2, MatchState.IN_PROCESS);
-        CurrentMatch expected = new CurrentMatch(uuid, player1, player2, MatchState.IN_PROCESS);
+        CurrentMatchDTO actual = new CurrentMatchDTO(uuid, player1, player2, MatchState.IN_PROCESS);
+        CurrentMatchDTO expected = new CurrentMatchDTO(uuid, player1, player2, MatchState.IN_PROCESS);
 
         //actual
         actual.setCurrentGameWinner(player1);
@@ -150,8 +150,8 @@ public class SetScoreCalculationTest {
         Player player1 = new Player(1, "Vlad");
         Player player2 = new Player(2, "Maks");
         UUID uuid = UUID.randomUUID();
-        CurrentMatch actual = new CurrentMatch(uuid, player1, player2, MatchState.IN_PROCESS);
-        CurrentMatch expected = new CurrentMatch(uuid, player1, player2, MatchState.IN_PROCESS);
+        CurrentMatchDTO actual = new CurrentMatchDTO(uuid, player1, player2, MatchState.IN_PROCESS);
+        CurrentMatchDTO expected = new CurrentMatchDTO(uuid, player1, player2, MatchState.IN_PROCESS);
 
         //actual
         actual.setCurrentGameWinner(player2);
@@ -179,8 +179,8 @@ public class SetScoreCalculationTest {
         Player player1 = new Player(1, "Vlad");
         Player player2 = new Player(2, "Maks");
         UUID uuid = UUID.randomUUID();
-        CurrentMatch actual = new CurrentMatch(uuid, player1, player2, MatchState.IN_PROCESS);
-        CurrentMatch expected = new CurrentMatch(uuid, player1, player2, MatchState.IN_PROCESS);
+        CurrentMatchDTO actual = new CurrentMatchDTO(uuid, player1, player2, MatchState.IN_PROCESS);
+        CurrentMatchDTO expected = new CurrentMatchDTO(uuid, player1, player2, MatchState.IN_PROCESS);
 
         //actual
         actual.setCurrentGameWinner(player1);

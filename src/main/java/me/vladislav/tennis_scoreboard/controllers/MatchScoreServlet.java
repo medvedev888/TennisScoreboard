@@ -8,9 +8,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import me.vladislav.tennis_scoreboard.dao.MatchDataAccessObject;
-import me.vladislav.tennis_scoreboard.dao.PlayerDataAccessObject;
-import me.vladislav.tennis_scoreboard.dto.CurrentMatch;
-import me.vladislav.tennis_scoreboard.models.Match;
+import me.vladislav.tennis_scoreboard.dto.CurrentMatchDTO;
 import me.vladislav.tennis_scoreboard.services.FinishedMatchesPersistenceService;
 import me.vladislav.tennis_scoreboard.services.MatchScoreCalculationService;
 import me.vladislav.tennis_scoreboard.services.OngoingMatchesService;
@@ -19,7 +17,6 @@ import me.vladislav.tennis_scoreboard.services.business_logic.MatchCalculation.M
 import me.vladislav.tennis_scoreboard.services.business_logic.SetCalculation.SetResult;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.UUID;
 
 @WebServlet(name="matchScore", value = "/match-score")
@@ -45,21 +42,21 @@ public class MatchScoreServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         UUID uuid = UUID.fromString(req.getParameter("uuid"));
-        CurrentMatch currentMatch = OngoingMatchesService.getInstance().getCurrentMatch(uuid);
+        CurrentMatchDTO currentMatchDTO = OngoingMatchesService.getInstance().getCurrentMatch(uuid);
         int numberOfWinnerPoint = Integer.parseInt(req.getParameter("number_of_winner_point"));
         if(numberOfWinnerPoint == 1){
-            currentMatch.setCurrentPointWinner(currentMatch.getPlayer1());
+            currentMatchDTO.setCurrentPointWinner(currentMatchDTO.getPlayer1());
         } else if(numberOfWinnerPoint == 2){
-            currentMatch.setCurrentPointWinner(currentMatch.getPlayer2());
+            currentMatchDTO.setCurrentPointWinner(currentMatchDTO.getPlayer2());
         } else {
             throw new RuntimeException("Number of winning points not correct");
         }
-        matchScoreCalculationService.calculation(currentMatch);
-        if(currentMatch.getMatchState() == MatchState.PLAYER_1_WON || currentMatch.getMatchState() == MatchState.PLAYER_2_WON){
+        matchScoreCalculationService.calculation(currentMatchDTO);
+        if(currentMatchDTO.getMatchState() == MatchState.PLAYER_1_WON || currentMatchDTO.getMatchState() == MatchState.PLAYER_2_WON){
             matchScoreCalculationService.setGameResult(GameResult.IN_PROCESS);
             matchScoreCalculationService.setSetResult(SetResult.IN_PROCESS);
 
-            finishedMatchesPersistenceService.saveMatch(currentMatch, matchDataAccessObject);
+            finishedMatchesPersistenceService.saveMatch(currentMatchDTO, matchDataAccessObject);
         }
         resp.sendRedirect("match-score?uuid=" + uuid);
     }

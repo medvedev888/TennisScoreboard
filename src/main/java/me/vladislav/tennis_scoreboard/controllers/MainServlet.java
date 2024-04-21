@@ -8,10 +8,10 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet(name = "index", value="/")
+@WebServlet(name = "index", value="/index")
 public class MainServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("view/index.jsp").forward(req, resp);
+        req.getRequestDispatcher("/view/index.jsp").forward(req, resp);
     }
 }

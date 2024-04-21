@@ -11,7 +11,7 @@ import java.util.UUID;
 @Setter
 @ToString
 @EqualsAndHashCode
-public class CurrentMatch {
+public class CurrentMatchDTO {
     private UUID id;
     private Player player1;
     private Player player2;
@@ -32,7 +32,7 @@ public class CurrentMatch {
 
     private MatchState matchState = MatchState.IN_PROCESS;
 
-    public CurrentMatch(UUID id, Player player1, Player player2, MatchState matchState) {
+    public CurrentMatchDTO(UUID id, Player player1, Player player2, MatchState matchState) {
         this.id = id;
         this.player1 = player1;
         this.player2 = player2;
