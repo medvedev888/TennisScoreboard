@@ -22,13 +22,12 @@ public class FinishedMatchesPersistenceService {
     public PaginationResultDTO getListOfMatchesByPlayerNameForPage(int page, String playerName, MatchDataAccessObject matchDataAccessObject) {
         Optional<List<Match>> optionalListOfMatches = matchDataAccessObject.getMatchesByPlayerName(playerName);
         List<Match> matches = new ArrayList<>();
-        List<Match> listOfMatches;
         PaginationResultDTO paginationResultDTO = new PaginationResultDTO(page, false);
 
         if(playerName == null || playerName.isEmpty()){
             optionalListOfMatches = matchDataAccessObject.getList();
             if(optionalListOfMatches.isPresent()){
-                listOfMatches = optionalListOfMatches.get();
+                List<Match> listOfMatches = optionalListOfMatches.get();
                 int startIndex = (page - 1) * 5;
                 int endIndex = Math.min(startIndex + 5, listOfMatches.size());
                 matches = listOfMatches.subList(startIndex, endIndex);
@@ -36,7 +35,7 @@ public class FinishedMatchesPersistenceService {
             }
         }
         if (optionalListOfMatches.isPresent()) {
-            listOfMatches = optionalListOfMatches.get();
+            List<Match> listOfMatches = optionalListOfMatches.get();
             int startIndex = (page - 1) * 5;
             int endIndex = Math.min(startIndex + 5, listOfMatches.size());
             matches = listOfMatches.subList(startIndex, endIndex);
