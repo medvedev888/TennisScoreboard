@@ -12,19 +12,12 @@
     <script src="<%=request.getContextPath()%>/scripts/placeholderHandlerScript.js" defer></script>
 </head>
 <%
+    int numberOfPage = 1;
     Object obj = request.getAttribute("paginationResultDTO");
     PaginationResultDTO paginationResultDTO = null;
     if (obj != null) {
         paginationResultDTO = (PaginationResultDTO) obj;
-    }
-    int numberOfPage = 1;
-    String pageParam = request.getParameter("page");
-    if (pageParam != null && !pageParam.isEmpty()) {
-        try {
-            numberOfPage = Integer.parseInt(pageParam);
-        } catch (NumberFormatException e){
-            throw new RuntimeException("Invalid page number: " + e);
-        }
+        numberOfPage = paginationResultDTO.getCurrentPage();
     }
 %>
 <body>
@@ -32,7 +25,7 @@
     <div class="filter-container">
         <form action="" method="get">
             <input type="text" maxlength="20" class="player" name="filter_by_player_name"
-                   placeholder="Enter the name of player">
+                   placeholder="Enter the name of player" value="${param.filter_by_player_name}">
             <input type="hidden" class="page" name="page" value="<%=numberOfPage%>">
             <button class="button" id="search-button" formaction="${pageContext.request.contextPath}/matches">Search</button>
             <button class="button" id="clear-button" formaction="${pageContext.request.contextPath}/matches">Clear</button>
@@ -59,9 +52,6 @@
         </table>
     </div>
     <div class="pagination-container">
-<%--        <button class="button" id="prev-button">Prev</button>--%>
-<%--        <div id="number-of-page-container"><p id="number-of-page"><%=numberOfPage%></p></div>--%>
-<%--        <button class="button" id="next-button">Next</button>--%>
         <% if(numberOfPage > 1){ %>
             <a href="${pageContext.request.contextPath}/matches?page=<%= numberOfPage - 1%>&filter_by_player_name=${param.filter_by_player_name}">Prev</a>
         <% } %>
@@ -69,8 +59,6 @@
         <% if(paginationResultDTO.isHasNextPage()) { %>
             <a href="${pageContext.request.contextPath}/matches?page=<%= numberOfPage + 1%>&filter_by_player_name=${param.filter_by_player_name}">Next</a>
         <% } %>
-
-
     </div>
     <div class="link-container">
         <div class="link-subcontainer">

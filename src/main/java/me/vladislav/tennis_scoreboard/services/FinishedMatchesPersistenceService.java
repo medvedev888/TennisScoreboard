@@ -35,6 +35,10 @@ public class FinishedMatchesPersistenceService {
             }
         }
         if (optionalListOfMatches.isPresent()) {
+            if(optionalListOfMatches.get().size() <= (page - 1) * 5){
+                page = 1;
+                paginationResultDTO.setCurrentPage(1);
+            }
             List<Match> listOfMatches = optionalListOfMatches.get();
             int startIndex = (page - 1) * 5;
             int endIndex = Math.min(startIndex + 5, listOfMatches.size());
