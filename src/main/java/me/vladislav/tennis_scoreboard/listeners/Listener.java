@@ -8,6 +8,7 @@ import me.vladislav.tennis_scoreboard.dao.MatchDataAccessObject;
 import me.vladislav.tennis_scoreboard.dao.PlayerDataAccessObject;
 import me.vladislav.tennis_scoreboard.services.FinishedMatchesPersistenceService;
 import me.vladislav.tennis_scoreboard.services.MatchScoreCalculationService;
+import me.vladislav.tennis_scoreboard.utils.HibernateUtils;
 
 @WebListener
 public class Listener implements ServletContextListener {
@@ -23,6 +24,8 @@ public class Listener implements ServletContextListener {
         context.setAttribute("matchDataAccessObject", matchDataAccessObject);
         context.setAttribute("matchScoreCalculationService", matchScoreCalculationService);
         context.setAttribute("finishedMatchesPersistenceService", finishedMatchesPersistenceService);
+
+        HibernateUtils.fillingTheTables();
     }
 
     @Override
