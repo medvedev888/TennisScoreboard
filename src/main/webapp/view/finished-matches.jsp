@@ -34,18 +34,26 @@
     <div class="table-container">
         <table class="table">
             <thead>
-            <tr>
-                <th>Match ID</th>
-                <th>Player 1</th>
-                <th>Player 2</th>
-            </tr>
+                <tr>
+                    <th>Match ID</th>
+                    <th>Player 1</th>
+                    <th>Player 2</th>
+                </tr>
             </thead>
             <tbody>
             <% for(Match match : paginationResultDTO.getListOfFinishedMatches()){ %>
             <tr>
                 <th><%=match.getId()%></th>
-                <th><%=match.getPlayer1().getName()%></th>
-                <th><%=match.getPlayer2().getName()%></th>
+                <th><%=match.getPlayer1().getName()%>
+                <% if (match.getPlayer1().equals(match.getWinner())) { %>
+                    <span class="crown-icon">&#9812;</span>
+                <% } %>
+                </th>
+                <th><%=match.getPlayer2().getName()%>
+                <% if (match.getPlayer2().equals(match.getWinner())) { %>
+                    <span class="crown-icon">&#9812;</span>
+                <% } %>
+                </th>
             </tr>
             <% } %>
             </tbody>
