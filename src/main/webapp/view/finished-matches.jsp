@@ -9,7 +9,7 @@
     <title>Finished Matches</title>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/finished-matches-style.css" />
     <script src="<%=request.getContextPath()%>/scripts/clearFilterScript.js" defer></script>
-    <script src="<%=request.getContextPath()%>/scripts/placeholderHandlerScript.js" defer></script>
+    <script src="<%=request.getContextPath()%>/scripts/linkContainerClickHandlerScript.js" defer></script>
 </head>
 <%
     int numberOfPage = 1;
@@ -53,11 +53,11 @@
     </div>
     <div class="pagination-container">
         <% if(numberOfPage > 1){ %>
-            <a href="${pageContext.request.contextPath}/matches?page=<%= numberOfPage - 1%>&filter_by_player_name=${param.filter_by_player_name}">Prev</a>
+            <a class="button" id="pagination-button-prev" href="${pageContext.request.contextPath}/matches?page=<%= numberOfPage - 1%>&filter_by_player_name=${param.filter_by_player_name}">Prev</a>
         <% } %>
             <div id="number-of-page-container"><p id="number-of-page"><%= numberOfPage %></p></div>
         <% if(paginationResultDTO.isHasNextPage()) { %>
-            <a href="${pageContext.request.contextPath}/matches?page=<%= numberOfPage + 1%>&filter_by_player_name=${param.filter_by_player_name}">Next</a>
+            <a class="button" id="pagination-button-next" href="${pageContext.request.contextPath}/matches?page=<%= numberOfPage + 1%>&filter_by_player_name=${param.filter_by_player_name}">Next</a>
         <% } %>
     </div>
     <div class="link-container">
