@@ -14,4 +14,6 @@ public class PaginationResultDTO {
     private int currentPage;
     @NonNull
     private boolean hasNextPage;
+    @NonNull
+    private String playerName;
 }

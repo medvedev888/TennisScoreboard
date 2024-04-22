@@ -41,13 +41,13 @@
             </tr>
             </thead>
             <tbody>
-                <% for(Match match : paginationResultDTO.getListOfFinishedMatches()){ %>
-                    <tr>
-                        <th><%=match.getId()%></th>
-                        <th><%=match.getPlayer1().getName()%></th>
-                        <th><%=match.getPlayer2().getName()%></th>
-                    </tr>
-                <% } %>
+            <% for(Match match : paginationResultDTO.getListOfFinishedMatches()){ %>
+            <tr>
+                <th><%=match.getId()%></th>
+                <th><%=match.getPlayer1().getName()%></th>
+                <th><%=match.getPlayer2().getName()%></th>
+            </tr>
+            <% } %>
             </tbody>
         </table>
     </div>
@@ -55,7 +55,7 @@
         <% if(numberOfPage > 1){ %>
             <a href="${pageContext.request.contextPath}/matches?page=<%= numberOfPage - 1%>&filter_by_player_name=${param.filter_by_player_name}">Prev</a>
         <% } %>
-        <div id="number-of-page-container"><p id="number-of-page"><%= numberOfPage %></p></div>
+            <div id="number-of-page-container"><p id="number-of-page"><%= numberOfPage %></p></div>
         <% if(paginationResultDTO.isHasNextPage()) { %>
             <a href="${pageContext.request.contextPath}/matches?page=<%= numberOfPage + 1%>&filter_by_player_name=${param.filter_by_player_name}">Next</a>
         <% } %>
@@ -65,5 +65,5 @@
             <a class = "link" href="${pageContext.request.contextPath}/view/index.jsp">Back</a>
         </div>
     </div>
-    </body>
+</body>
 </html>
