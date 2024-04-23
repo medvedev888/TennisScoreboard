@@ -14,9 +14,13 @@ import java.util.Optional;
 public class FinishedMatchesPersistenceService {
 
     public void saveMatch(CurrentMatchDTO currentMatchDTO, MatchDataAccessObject matchDataAccessObject) {
-        Player winner = currentMatchDTO.getMatchState() == MatchState.PLAYER_1_WON ? currentMatchDTO.getPlayer1() : currentMatchDTO.getPlayer2();
-        Match match = new Match(currentMatchDTO.getPlayer1(), currentMatchDTO.getPlayer2(), winner);
-        matchDataAccessObject.add(match);
+        if(currentMatchDTO.getMatchState() != null){
+            Player winner = currentMatchDTO.getMatchState() == MatchState.PLAYER_1_WON ? currentMatchDTO.getPlayer1() : currentMatchDTO.getPlayer2();
+            Match match = new Match(currentMatchDTO.getPlayer1(), currentMatchDTO.getPlayer2(), winner);
+            matchDataAccessObject.add(match);
+        } else {
+            throw new RuntimeException("Winner is null");
+        }
     }
 
     public PaginationResultDTO getListOfMatchesByPlayerNameForPage(int page, String playerName, MatchDataAccessObject matchDataAccessObject) {

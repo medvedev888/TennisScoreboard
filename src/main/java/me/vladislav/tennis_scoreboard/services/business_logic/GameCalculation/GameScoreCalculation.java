@@ -12,10 +12,6 @@ public class GameScoreCalculation implements Calculation<GameResult> {
 
         Player currentPointWinner = currentMatchDTO.getCurrentPointWinner();
 
-//        if(currentMatch.getMatchState() != MatchState.IN_PROCESS){
-//            System.out.println("dsjksdf");
-//        }
-
         if (currentMatchDTO.getMatchState() == MatchState.IN_PROCESS) {
                 //first player is won the point
             if (currentPointWinner.equals(currentMatchDTO.getPlayer1())) {
